@@ -16,6 +16,11 @@ ClickLion['docs'] =
       $ '.fixed-menu'
         .addClass 'hfso'
 
+    initAnchorLinks = () ->
+      $ window
+        .on 'hashchange', (e) ->
+          unlockBody()
+
     initScrollSpy = () ->
 
       tops = {}
@@ -71,6 +76,7 @@ ClickLion['docs'] =
           e.preventDefault()
 
     initFixedMenu()
+    initAnchorLinks()
     initScrollSpy()
 
 if $?
