@@ -1,14 +1,5 @@
-@keyframes highlight
-  0%
-    background-color antiquewhite
-  100%
-    background-color auto
-    
-highlight()
-  animation highlight 2s ease
-
 .document
-  padding 60px 0 30px 0
+  padding 50px 0 30px 0
   max-width 800px
   
   @media small-only
@@ -77,24 +68,40 @@ highlight()
       background-color transparent
       
   section
+    padding-top 60px
+    margin-top -45px
     &:target
-      highlight()
+      h1.title
+        color danger-color
+
     h1.title
       transition color .2s ease-in-out
       margin 0 0 20px 0
       padding-bottom 10px
       border-bottom 1px solid gainsboro
       line-height 35px
+      font-size 1.4em
+      @media medium
+        font-size 1.6em
+      @media large
+        font-size 1.8em
       
     article
-      padding 15px 0 0 0
-      margin-bottom 25px
+      padding-top 60px
+      margin-top -45px
+      margin-bottom 20px
       &:target
-        highlight()
+        h2.title
+          color danger-color
+
       .body
         > *:last-child
           margin-bottom 0
       h2.title
         transition color .2s ease-in-out
-        font-size 1.4em
-        margin 0 0 15px 0
+        margin 0 0 12px 0
+        font-size 1.2em
+        @media medium
+          font-size 1.3em
+        @media large
+          font-size 1.4em

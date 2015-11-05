@@ -58,13 +58,13 @@ block content
           img(src="https://camo.githubusercontent.com/0490e63e32213ea393417f12142fe5702df538cb/687474703a2f2f7075752e73682f6b427872652f363439626364346165322e706e67")
 
   section#how-to-setup-a-campaign-to-get-high-valuable-visitors
-    h1.title How to setup a campaign to get high valueable visitors?
+    h1.title How to setup a campaign to get high valuable visitors?
     .body
       p To setup a campaign, please follow these steps:
       ol
         li
           p
-            a(href="#{clicklion}/users/sign_in") Sign in
+            a(href="#{clicklion}/users/sign_in" target="_blank") Sign in
             |  to your ClickLion account.
         li
           p In 
@@ -139,6 +139,107 @@ block content
                 |  is a valid domain while 
                 code clicklion.com
                 |  is invalid.
+        li
+          p If your campaign is successfully created, a campaign page will show up. In case you see error messages, please correct invalid fields and resubmit the form.
+        li
+          p After creating the campaign, the form status will be 
+            code unpaid
+            | . You need purchase the campaign but before purchasing, you should make sure that your articles are available.
+          ul
+            li
+              p If you choose automatic articles collection, ClickLion might need to some time (up to 24 hours) to finish collecting the articles and send you a notification email. After you received that email, please review the articles and 
+                a(href="#paying-for-your-campaign") purchase the campaign
+                |  if you think ClickLion collected the articles correctly, otherwise please 
+                a(href="#{clicklion}/contact") contact us
+                |  for supports.
+            li
+              p If you choose your campaign to be manual, you should start 
+                a(href="#") creating your articles
+                | . After that please 
+                a(href="#paying-for-your-campaign") purchase the campaign
+                | .
+          blockquote.note
+            p There is a warning about the purchase due date such as 
+              code Please purchase your campaign before 06-10-2015
+              | . If you are not able to purchase the campaign on time, you will have to 
+              a(href="#reconfigure-campaigns") reconfigure the campaign
+              |  before purchasing it.
+        li
+          p The campaign will be reviewed by ClickLion staffs. If it is 
+            code approved
+            | , the campaign will be active by the campaign 
+            code Start Date
+            | . In case the campaign is 
+            code disapproved
+            | , the 
+            code Budget
+            |  will be returned to your 
+            code Wallet
+            | . 
+            a(href="#{doc}/account-management.html#your-wallet") Learn more
+            |  about 
+            code Wallet
+            | .
+
+  section#paying-for-your-campaign
+    h1.title Paying for your campaign
+    .body
+      p To pay your campaign, please follow these steps:
+      ol
+        li
+          p
+            a(href="#{clicklion}/users/sign_in" target="_blank") Sign in
+            |  to your ClickLion account
+        li
+          p In 
+            code Advertiser section
+            | , choose a campaign you want to pay from campaign table.
+          blockquote.note
+            p An unpaid campaign witll have be shown like so 
+              img(src=_a('/img/figures/unpaid.png'))
+        li
+          p In campaign page, click 
+            code Pay
+            |  button to proceed.
+          blockquote.note
+            p In case your balance is insufficient, this action will take you to wallet page to 
+              a(href="#{doc}/account-management.html#add-funds-to-your-wallet") add money into your balance
+              | .
+
+  section#reconfigure-campaigns
+    h1.title Reconfigure campaigns
+    .body
+      p To reconfigure your campaign, please follow these steps:
+      ol
+        li
+          p
+            a(href="#{clicklion}/users/sign_in" target="_blank") Sign in
+            |  to your ClickLion account
+        li
+          p Click 
+            code Advertiser
+            |  on top navigation, you will see a table of your campaigns.
+        li
+          p Select the campaign in the campaign table which you want to reconfigure. A campaign can be reconfigured only if it is 
+            code unpaid
+            | .
+          blockquote.note
+            p An unpaid campaign witll have be shown like so 
+              img(src=_a('/img/figures/unpaid.png'))
+        li
+          p In campaign page, click 
+            code Config
+            |  button to proceed.
+          ul
+            li
+              p In campaign's configuration page, you can change campaign properties, including name, budget, cpc, duration, starting day, payment method and articles collection method.
+            li
+              p Remember to click 
+                code Save
+                |  to save the changes.
+          blockquote.note
+            p In case the start date is over, you have to update it to a future day in order to make your campaign able to run.
+
 
   section#userstand-your-campaign
     h1.title Understand your campaign
@@ -271,7 +372,9 @@ block content
             code View inactive articles
             |  on the top right corner of the articles table.
 
-          h2 Enable articles
+      article#enable-articles
+        h2.title Enable articles
+        .body
           p To enable inactive articles, please follow these steps:
           ol
             li
