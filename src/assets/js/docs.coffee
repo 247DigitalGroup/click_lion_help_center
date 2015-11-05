@@ -16,21 +16,6 @@ ClickLion['docs'] =
       $ '.fixed-menu'
         .addClass 'hfso'
 
-    initAnchorLinks = () ->
-      $ window
-        .on 'hashchange', (e) ->
-          unlockBody()
-          hash = window.location.hash
-          if hash.length > 0
-            if $(hash).length > 0
-              $ '.wrapper'
-                .stop()
-                .animate
-                  scrollTop: $(hash).get(0).offsetTop - $('.fixed-bar').height() - 20
-                  , 0, () ->
-          e.preventDefault()
-        .trigger 'hashchange'
-
     initScrollSpy = () ->
 
       tops = {}
@@ -86,7 +71,6 @@ ClickLion['docs'] =
           e.preventDefault()
 
     initFixedMenu()
-    initAnchorLinks()
     initScrollSpy()
 
 if $?
