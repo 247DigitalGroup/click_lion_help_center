@@ -1,0 +1,178 @@
+arrow-size = 6px
+arrow-border-size = 7px
+
+.tooltipster-default
+  border-radius radius
+  background-color oil
+  color white
+  .tooltipster-content
+    display block
+    font-size 12px
+    line-height 15px
+    padding 5px 10px
+    overflow hidden
+    
+.tooltipster-icon
+  cursor help
+  margin-left 4px
+  
+.tooltipster-base
+  padding 0
+  font-size 0
+  line-height 0
+  position absolute
+  left 0
+  top 0
+  z-index 9999999
+  pointer-events none
+  width auto
+  overflow visible
+  .tooltipster-content
+    overflow hidden
+    
+.tooltipster-arrow
+  display block
+  text-align center
+  width 100%
+  height 100%
+  position absolute
+  left 0
+  top 0
+  z-index -1
+
+.tooltipster-arrow span,
+.tooltipster-arrow-border
+  display block
+  width 0
+  height 0
+  position absolute
+  
+.tooltipster-arrow-top,
+.tooltipster-arrow-top-right,
+.tooltipster-arrow-top-left
+  span
+    border-left arrow-size solid transparent !important
+    border-right @border-left
+    border-top arrow-size solid
+    bottom (- arrow-size + 1)
+  .tooltipster-arrow-border
+    border-left arrow-border-size solid transparent !important
+    border-right @border-left
+    border-top arrow-border-size solid
+    bottom (- arrow-size + 1)
+  
+.tooltipster-arrow-bottom,
+.tooltipster-arrow-bottom-right,
+.tooltipster-arrow-bottom-left
+  span
+    border-left arrow-size solid transparent !important
+    border-right @border-left
+    border-bottom arrow-size solid
+    top (- arrow-size + 1)
+  .tooltipster-arrow-border
+    border-left arrow-border-size solid transparent !important
+    border-right @border-left
+    border-bottom arrow-border-size solid
+    top (- arrow-size + 1)
+    
+.tooltipster-arrow-top,
+.tooltipster-arrow-bottom
+  span,
+  .tooltipster-arrow-border
+    left 0
+    right 0
+    margin 0 auto
+
+.tooltipster-arrow-top-left,
+.tooltipster-arrow-bottom-left
+  span
+    left 6px
+  .tooltipster-arrow-border
+    left 5px
+    
+.tooltipster-arrow-top-right,
+.tooltipster-arrow-bottom-right
+  span
+    right 6px
+  .tooltipster-arrow-border
+    right 5px
+    
+.tooltipster-arrow-left
+  span,
+  .tooltipster-arrow-border
+    border-top arrow-size solid transparent !important
+    border-bottom @border-top
+    border-left arrow-size solid
+    top 50%
+    margin-top (- arrow-size + 1)
+    right @margin-top
+  .tooltipster-arrow-border
+    border-top arrow-border-size solid transparent !important
+    border-bottom @border-top
+    border-left arrow-border-size solid
+    margin-top (- arrow-size)
+    
+.tooltipster-arrow-right
+  span,
+  .tooltipster-arrow-border
+    border-top arrow-size solid transparent !important
+    border-bottom @border-top
+    border-right arrow-size solid
+    top 50%
+    margin-top (- arrow-size + 1)
+    left @margin-top
+  .tooltipster-arrow-border
+    border-top arrow-border-size solid transparent !important
+    border-bottom @border-top
+    border-right arrow-border-size solid
+    margin-top (- arrow-size)
+    
+.tooltipster-fade
+  opacity 0
+  transition-property opacity
+
+.tooltipster-fade-show
+  opacity 1
+  
+.tooltipster-grow
+  transform scale(0, 0)
+  transition-property transform
+  backface-visibility hidden
+
+.tooltipster-grow-show
+  transform sacle(1, 1)
+  transition-timing-function cubic-bezier(.175, .885, .320, 1.15)
+  
+.tooltipster-swing
+  opacity 0
+  transfrom rotateZ(4deg)
+  transition-property transform
+  
+.tooltipster-swing-show
+  opacity 1
+  transform rotateZ(0deg)
+  transition-timing-function cubic-bezier(.230, .635, .495, 2.4)
+  
+.tooltipster-fall
+  top 0
+  transition-property top
+  transition-timing-function cubic-bezier(.175, .885, .320, 1.15)
+
+.tooltipster-fall.tooltipster-dying
+  transition-property all
+  top 0 !important
+  opacity 0
+  
+.tooltipster-slide
+  left -40px
+  transition-property left
+  transition-timing-function cubic-bezier(.175, .885, .320, 1.15)
+
+.tooltipster-slide.tooltipster-dying
+  transition-property all
+  left 0 !important
+  opacity 0
+  
+.tooltipster-content-changing
+  opacity .5
+  transform scale(1.1, 1.1)

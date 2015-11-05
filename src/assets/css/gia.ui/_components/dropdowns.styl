@@ -1,0 +1,70 @@
+if include-dropdowns
+
+  .{dropdown-class}
+    position relative
+    display inline-block
+    &.{xsmall-prefix}
+      .{dropdown-content-class}
+        width dropdown-xsmall-width
+    &.{small-prefix}
+      .{dropdown-content-class}
+        width dropdown-small-width
+    &.{medium-prefix}
+      .{dropdown-content-class}
+        width dropdown-medium-width
+    &.{large-prefix}
+      .{dropdown-content-class}
+        width dropdown-large-width
+    &.{xlarge-prefix}
+      .{dropdown-content-class}
+        width dropdown-xlarge-width
+    &:hover
+      .{dropdown-content-class}
+        display block
+    .{dropdown-content-class}
+      position absolute
+      display none
+      height auto
+      width dropdown-default-width
+      max-height dropdown-max-height
+      margin 0
+      .{dropdown-panel-class}
+        position relative
+        margin dropdown-margin
+        padding dropdown-content-padding
+        background dropdown-background
+        border dropdown-border-width dropdown-border-style dropdown-border-color
+        border-radius 3px
+        &:before
+          content ''
+          width 0
+          height 0
+          border ((dropdown-triangle-size + 2px) solid dropdown-border-color)
+          border-left-color transparent
+          border-right-color transparent
+          border-top-color transparent
+          position absolute
+          top (- dropdown-triangle-size * 2 - 4px)
+          left (dropdown-content-padding-left - dropdown-triangle-size / 2 - 2px)
+        &:after
+          content ''
+          width 0
+          height 0
+          border dropdown-triangle-size solid dropdown-triangle-color
+          border-left-color transparent
+          border-right-color transparent
+          border-top-color transparent
+          position absolute
+          top (- dropdown-triangle-size * 2)
+          left (dropdown-content-padding-left - dropdown-triangle-size / 2)
+        ul.m
+          margin dropdown-menu-margin
+          padding dropdown-menu-padding
+          list-style none
+          > li
+            > a
+              display block
+              color dropdown-menu-font-color
+              padding dropdown-menu-link-padding
+              &:hover
+                background-color dropdown-menu-link-hover-background

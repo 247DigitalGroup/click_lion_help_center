@@ -1,0 +1,32 @@
+extends _layouts/docs
+
+block var
+  - index = 1
+  - title = 'Getting Started'
+  - description = title
+  - url = '/getting-started.html'
+
+block content
+
+  section#tutorials
+    h1.title Tutorials
+    .body
+      p Here we will try to cover the basics in order to provide you with a successful start in ClickLion.
+      p In this tutorial we will cover the following topics:
+        ul
+          li
+            p
+              a(href="#{doc}/campaign-and-article-management.html#how-to-setup-a-campaign-to-get-high-valuable-visitors") How to setup a campaign to get high valuable visitor?
+          li
+            p
+              a(href="#{doc}/domain-and-creative-management.html#how-to-register-a-domain-to-get-high-user-experience-and-revenue-from-your-traffic") How to register a domain to get high user experience and revenue from your traffic?
+
+  section#advertiser-work-flow
+    h1.title Advertiser Work Flow
+    .body
+      p How does ClickLuon bring high valuable visitor to advertiser websites?
+
+  section#publisher-work-flow
+    h1.title Publisher Work Flow
+    .body
+      p How does ClickLion improve publishers' experience over other Content Syndication Networks?

@@ -1,0 +1,215 @@
+inputs = 'input[type=text], input[type=number], input[type=email], input[type=password], input[type=search], select, textarea'
+_inputs = '> input[type=text], > input[type=number], > input[type=email], > input[type=password], > input[type=search], > select, > textarea'
+
+.e, .error
+  {inputs}
+    margin-bottom 0
+
+.e small.e,
+small.e,
+.error small.error,
+small.error
+  bg-color = #f5f5f5
+  error-color = lighten(danger-color, 10)
+  font-style italic
+  display block
+  border-radius 0 0 radius radius
+  margin 0 0 20px 0
+  background-color bg-color
+  border-left 5px solid danger-color
+  background bg-color
+  font-size 12px
+  padding 8px 15px 8px 35px
+  color #444
+  position relative
+  &:before
+    position absolute
+    left 10px
+    top 9px
+    color error-color
+    content '\f06a'
+    font normal normal normal 18px/1 FontAwesome
+    text-rendering auto
+    -webkit-font-smoothing antialiased
+
+.bt
+  line-height 19px
+  &.bd
+    border 2px solid jet
+    font-size 10px
+    letter-spacing 1.5px
+    text-transform uppercase
+    background-color transparent
+    font-weight demi-bold-font-weight
+    padding 8px 15px
+    &:hover
+      background-color transparent
+    &.white
+      border-color white
+      color @border-color
+      
+span.radio
+  &.tl
+    > label
+      text-align left
+
+label
+  font-size 13px
+  color steel
+  margin 6px 0
+  + div.input
+    padding-top 6px
+  > div.input
+    padding-top 6px
+  > .rw
+    margin-top 6px
+  {_inputs}
+    margin-top 6px
+  small
+    font-size 12px
+    color jumbo
+  
+form
+  h6.block-title
+    font-weight medium-bold-font-weight
+    text-transform uppercase
+    margin 15px 0
+    font-size 12px
+    letter-spacing 1px
+  &.f-2
+    label
+      display block
+      text-align right
+  &.sm-f-1
+    @media small-only
+      label
+        text-align left
+    
+span.sf,
+span.pf
+  background-color silver
+  color black
+  padding 0 8px
+  line-height 28px
+  text-align center
+  font-size 13px
+  display block
+  border 1px solid iron
+  border-right-color darken(iron, 5)
+  border-bottom-color @border-right-color
+  white-space nowrap
+  
+.pf-ra
+  input[type=text],
+  input[type=number]
+    border-top-left-radius 0
+    border-bottom-left-radius 0
+
+.sf-ra
+  input[type=text],
+  input[type=number]
+    border-top-right-radius 0
+    border-bottom-right-radius 0
+
+span.sf
+  border-left none
+  &.ra
+    border-radius 0 radius radius 0
+
+span.pf
+  border-right none
+  &.ra
+    border-radius radius 0 0 radius
+    
+select
+  background-image url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMTJweCIgeT0iMHB4IiB3aWR0aD0iMjRweCIgaGVpZ2h0PSIzcHgiIHZpZXdCb3g9IjAgMCA2IDMiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDYgMyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHBvbHlnb24gcG9pbnRzPSI1Ljk5MiwwIDIuOTkyLDMgLTAuMDA4LDAgIi8+PC9zdmc+')
+  background-repeat no-repeat
+  background-position right center  
+
+{inputs}
+  display block
+  width 100%
+  background-color white
+  font-size 13px
+  font-family font-family-sans-serif
+  font-weight demi-bold-font-weight
+  border 1px solid #e2e2e2
+  border-right-color darken(#e2e2e2, 5)
+  border-bottom-color @border-right-color
+  border-radius radius
+  margin-bottom 15px
+  outline none
+  appearance none
+  padding 6px 8px
+  &[disabled]
+    background-color darken(white, 2)
+    cursor not-allowed
+  &.e,
+  &.error
+    margin-bottom 0
+  &:hover
+    border-color iron
+  &:focus
+    background-color white
+    outline none
+    box-shadow 0 0 0 2px rgba(info-color, .2)
+    border-color info-color
+    
+label.image-picker
+  display block
+  border-radius radius
+  text-transform uppercase
+  background-repeat no-repeat
+  background-size cover
+  background-position center
+  background-color darken(white, 10)
+  width 100%
+  height 180px
+  margin-bottom 20px
+  position relative
+  > input
+    display none
+  &:hover
+    &:before, &:after
+      opacity 1
+  &:before, &:after
+    transition all .2s ease-in-out
+    border-radius radius
+    content ''
+    top 0
+    bottom 0
+    right 0
+    left 0
+    position absolute
+    opacity 0
+  &:before
+    z-index 1
+    background linear-gradient(top, rgba(103, 95, 113, .7), rgba(104, 95, 113, .4))
+  &:after
+    z-index 2
+    background-image url(/img/image-upload-overlay.svg)
+    background-repeat no-repeat
+    background-position center
+  & + a.image-picker-cancel
+    display none
+  &.removable + a.image-picker-cancel
+    display block
+    margin -12px 0 20px 0
+    color danger-color
+    font-size 13px
+    &:hover
+      color lighten(danger-color, 10)
+  
+form  
+  &.bd
+    {inputs}
+      border none
+      border-bottom 1px solid gainsboro
+      padding 5px 0
+      transition border-bottom-color .2s ease-in-out
+      &:focus
+        box-shadow none
+        border-bottom-color active-color
+    .bt
+      color black
+      padding 8px 13px 8px 15px

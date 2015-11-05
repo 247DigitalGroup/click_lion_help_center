@@ -1,0 +1,58 @@
+if include-block-grids
+  
+  create-block-grid-base(space = block-grid-default-space)
+    padding 0
+    margin 0 rem-calc(- space / 2)
+    list-style none
+    block-clear()
+    > li
+      display inline-block
+      width 100%
+      float left
+      padding 0 rem-calc(space / 2)
+      padding-bottom rem-calc(space)
+  
+  create-block-grid-spaces(prefix = null)
+    unless prefix is null
+      prefix += gap
+    for i in space-sizes
+      &.{prefix}{space-prefix}{gap}{i}
+        margin 0 rem-calc(- i / 2)
+        > li
+          padding 0 rem-calc(i / 2)
+          padding-bottom rem-calc(i)
+          
+  create-block-grid-item(count = 1)
+    > li
+      width: (100% / count)
+    > li:nth-of-type(n)
+      clear none
+    > li:nth-of-type({count}n + 1)
+      clear both
+          
+  create-block-grid-items(prefix)
+    for i in (1 .. block-grid-elements)
+      &.{prefix}{gap}{i}
+        create-block-grid-item(i)
+          
+  create-block-grid(space = block-grid-default-space, small = 1, medium = small, large = medium)
+    create-block-grid-base(space)
+    @media small
+      create-block-grid-item(small)
+    @media medium
+      create-block-grid-item(medium)
+    @media large
+      create-block-grid-item(large)
+  
+  ul.{block-grid-class}
+    create-block-grid-base()
+    create-block-grid-spaces()
+    @media small
+      create-block-grid-spaces(small-prefix)
+      create-block-grid-items(small-prefix)
+    @media medium
+      create-block-grid-spaces(medium-prefix)
+      create-block-grid-items(medium-prefix)
+    @media large
+      create-block-grid-spaces(large-prefix)
+      create-block-grid-items(large-prefix)

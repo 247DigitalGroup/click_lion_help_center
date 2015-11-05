@@ -1,0 +1,40 @@
+if include-alert-boxes
+  
+  .{alert-box-class}
+    background-color alert-box-background-color
+    border-left alert-box-border-left
+    color alert-box-text-color
+    padding alert-box-padding
+    font-size alert-box-font-size
+    margin alert-box-margin
+    position relative
+    
+    a
+      font-weight alert-box-link-font-weight
+    
+    > a.{alert-box-close-class}
+      color darken(alert-box-foreground-color, 20)
+      font-size alert-box-close-font-size
+      top alert-box-close-top
+      right alert-box-close-right
+      display block
+      position absolute
+      
+    // radius and round
+    if alert-box-default-radius > 0
+      border-radius alert-box-default-radius
+    radius-classes(alert-box-radius, alert-box-round)
+    
+    // coloring
+    coloring(color-class, color)
+      &.{color-class}
+        border-left-color: color.ribbon
+        background-color: color.background
+        a
+          color: color.link
+          &:hover
+            color: darken(color.link, 10)
+          
+          
+    for color-class, color in alert-box-colors
+      coloring(color-class, color)

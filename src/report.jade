@@ -1,0 +1,140 @@
+extends _layouts/docs
+
+block var
+  - index = 6
+  - title = 'Report'
+  - description = title
+  - url = '/report.html'
+
+block content
+
+  section#report-interface
+    h1.title Report Interface
+    .body
+
+      article#access-report-interface
+        h2.title Access report interface
+        .body
+          p Report is an important section in ClickLion. It is the performance insight for advertisers and publishers to improve their performance in the future. To access 
+            code Report
+            |  section, please follow these steps:
+          ol
+            li
+              p
+                a(href="#{clicklion}/users/sign_in" target="_blank") Sign in
+                |  to your ClickLion account.
+            li
+              p Click 
+                code Report
+                |  section on top navigation.
+
+      article#report-interface
+        h2.title Report Interface
+        .body
+          p At first, you will see a blank report with a box to choose the 
+            code report source entity
+            |  (
+            a(href="#") Learn more
+            |  about source entity) and a navigation menu on the left. In the left menu, we have 
+            code General
+            |  and 
+            code Geo
+            |  report options.
+
+          h3 General Report
+          p General report will provide you stats (in many 
+            a(href="#") metrics
+            | ) of a source entity in a specified date range with a specified frequency. To get a report:
+          ol
+            li
+              p Make sure you are in 
+                code General Report
+                |  section
+            li
+              p Choose a source entity
+                |  in the box which displays 
+                code Select report source
+            li
+              p If there is no data for that source entity, you will see a notice saying 
+                code No report data for this time frame, ....
+                |  Otherwise, you should see the report for selected source entity.
+              img(src="https://camo.githubusercontent.com/8a2f968df17ad4b80972ce47db63e0cd0b0ccb54/687474703a2f2f7075752e73682f6b426e4a4d2f303762656231653365662e706e67")
+              p In the report, there are three main parts: main graph, metric graphs and data table. 
+                code Main graph
+                |  is a detailed graph for selected metric. 
+                code Metric graphs
+                |  is a set of graph that displays many graphs for each metric, you can click one graph to bring them to the 
+                code Main graph
+                |  for better view. 
+                code Data table
+                |  contains all data for the report which is used to build up those graphs. In that table, you will see many columns that represent metric stats for each time period (
+                a(href="#") Learn more
+                |  on metrics).
+          p You can change date range and frequency of the report. Date range picker can be found under the source entity box on the left, frequency selector is on the right.
+
+          h3 Geographic report
+          p General report will provide you stats (in many 
+            a(href="#") metrics
+            | ) on a source entity in a specified date range for for many countries. To get a report:
+          ol
+            li
+              p Make sure you are in 
+                code General Report
+                |  section
+            li
+              p Choose a source entity in the box which displays 
+                code Select report source
+            li
+              p If there is no data for that source entity, you will see a notice of 
+                code No report data for this time frame, ....
+                |  Otherwise, you should see the report for selected source entity.
+              img(src="https://camo.githubusercontent.com/4ff8f987b7ec37c4fe4e80d63570134d134959af/687474703a2f2f7075752e73682f6b426e51472f306434333961313339382e706e67")
+              p The geographic report is basically the same with 
+                code General report
+                |  except there is no frequency, everything is calculated on country-wised basis. You can see country entries in the 
+                code data table
+                |  instead of a 
+                code period
+                | .
+
+  section#understand-your-reports
+    h1.title Understand your reports
+    .body
+
+      article#metrics-and-how-they-are-related
+        h2.title Metrics and how ther are related
+        .body
+          p
+            code Report
+            |  refers to report section on the top navigation bar. It also refers to the performance report for a source entity (a campaign, an article, a domain or a creative) in a specific date range with different frequencies (hourly, daily or monthly). A report contains many statistics on many 
+            a(href="#") metrics
+            |  and intuitive graphs for advertisers and publishers to track their performance conveniently.
+          h4 Read more
+          ul
+            li
+              a(href="#{doc}/glossary.html#impression") Impression
+            li
+              a(href="#{doc}/glossary.html#page-view") Page View
+            li
+              a(href="#{doc}/glossary.html#click") Click
+            li
+              a(href="#{doc}/glossary.html#ctr") CTR (Click Through Rate)
+            li
+              a(href="#{doc}/glossary.html#estimated-earning") Estimated Earning
+            li
+              a(href="#{doc}/glossary.html#estimated-spending") Estimated Spending
+            li
+              a(href="#{doc}/glossary.html#cpc") CPC (Cost per Click)
+            li
+              a(href="#{doc}/glossary.html#displayed-rate") Displayed Rate
+
+      article#report-source
+        h2.title Report source (your campaign, articles, domain, creative)
+        .body
+          p 
+            code Report source
+            |  is the entity you want to get report for. It can be a campaign, an individual article, your registered domain or a creative.
+          blockquote.note
+            p campaigns, domains and creatives are tracked by ClickLion report system. However, articles are not tracked by default. 
+            a(href="#{doc}/campaign-and-article-management.html#track-untrack-articles") Learn more
+            |  on how to track an article for report.

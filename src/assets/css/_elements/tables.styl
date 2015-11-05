@@ -1,0 +1,136 @@
+table
+  dark-border-color = #ddd
+  light-border-color = #eee
+  border-collapse collapse
+  width 100%
+  border none
+  border-radius radius
+  margin-bottom 20px
+  margin-top 5px
+  th, td
+    &.nowrap
+      white-space nowrap
+  td
+    &.nowrap
+      vertical-align top
+      font-size 90%
+  &.simple
+    border none
+    td
+      font-size 13px
+    th, td
+      vertical-align top
+      &:not(:last-child)
+        border-right none
+    > tbody > tr > td
+    > tbody > tr:first-child > td
+      padding-top 15px
+      padding-bottom 12px
+  th, td
+    &:not(:last-child)
+      border-right 1px solid light-border-color
+  > thead
+    background-color #f8f8f8
+    > tr
+      > th
+        padding 8px 10px 6px 10px
+        border-bottom 1px solid lighten(dark-border-color, 5)
+      > th
+        font-size 13px
+        font-weight demi-bold-font-weight
+        color tuatara
+        text-align left
+  > tbody
+    > tr
+      &:first-child
+        > td
+          padding 7px 10px 5px 10px
+      &:not(:last-child)
+        > td
+          border-bottom 1px solid light-border-color
+      > td
+        padding 5px 10px
+
+div.table-scroller
+  overflow scroll
+  overflow-scrolling touch
+
+table.dataTable
+  thead
+    th
+      cursor pointer
+      transition all .2s ease-in-out
+      &:hover
+        background-color darken(white, 5)
+      &[class*="sorting_"]
+        padding-right 17px
+    .sorting
+      background url(/img/tables/sort-both.png) no-repeat center right
+    .sorting_asc
+      background url(/img/tables/sort-asc.png) no-repeat center right
+    .sorting_desc
+      background url(/img/tables/sort-desc.png) no-repeat center right
+    .sorting_asc_disabled
+      background url(/img/tables/sort-asc-disabled.png) no-repeat center right
+    .sorting_desc_disabled
+      background url(/img/tables/sort-desc-disabled.png) no-repeat center right
+
+.dataTables_wrapper
+  position relative
+  clear both
+  zoom 1
+  .dataTables_length
+    label
+      margin 0
+      select
+        margin 0
+  div.top-toolbar
+    background-color #eee
+    padding-top 7px
+    padding-bottom @padding-top
+    border-radius radius radius 0 0
+    .dataTables_length
+      label
+        float left
+        text-align left
+        margin-bottom 0
+      select
+        width 64px
+        height 30px
+        line-height 30px
+        padding 0 8px
+        margin-bottom 0
+        border-color #eaeaea
+        border-bottom-color #ddd
+        font-size 12px
+        &:focus, &:active, &:hover
+          background-color white
+          box-shadow none
+    .dataTables_filter
+      float right
+      width 200px
+      input
+        height 30px
+        line-height 30px
+        padding 0 8px
+        margin 0
+        border-color #eaeaea
+        border-bottom-color #ddd
+        font-size 13px
+        font-weight normal
+        &:focus, &:active, &:hover
+          background-color white
+          box-shadow none
+  table
+    border-radius 0 0 radius radius
+    margin-top 0
+  .dataTables_info
+    font-size 13px
+  .dataTables_paginate
+    ul.pagination
+      float none
+      text-align right
+      > li
+        float none
+        display inline-block
+      

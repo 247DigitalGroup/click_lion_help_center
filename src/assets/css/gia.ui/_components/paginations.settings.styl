@@ -1,0 +1,30 @@
+include-paginations = true
+
+pagination-margin-bottom = include-types ? paragraph-margin-bottom : rem-calc(20)
+pagination-margin = 0 0 pagination-margin-bottom 0
+
+pagination-radius = radius
+pagination-round = round
+pagination-default-radius = 0
+pagination-default-space = rem-calc(5)
+
+pagination-font-size = rem-calc(13)
+pagination-text-color = tuatara
+
+pagination-transition = all .2s ease-in-out
+pagination-item-padding = rem-calc(1) rem-calc(8)
+
+pagination-item-hover()
+  background-color vapor
+  
+pagination-item-current()
+  font-weight demi-bold-font-weight
+  background-color active-color
+  color white
+  
+pagination-item-current-hover()
+  background-color darken(active-color, 5)
+  color white
+  
+pagination-item-unavailable()
+  color jumbo

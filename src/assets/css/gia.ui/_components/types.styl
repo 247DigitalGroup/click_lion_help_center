@@ -1,0 +1,136 @@
+if include-types
+
+	h1, h2, h3, h4, h5, h6
+		color header-font-color
+		font-family header-font-family
+		font-weight header-font-weight
+		font-style header-font-style
+		line-height header-line-height
+		margin-top header-top-margin
+		margin-bottom header-bottom-margin
+		text-rendering header-text-rendering
+		&.{type-subheader-class}
+			color subheader-font-color
+			line-height subheader-line-height
+			font-weight subheader-font-weight
+			margin-top subheader-top-margin
+			margin-bottom subheader-bottom-margin
+		small
+			font-size small-font-size
+			color small-font-color
+
+	h1, h2, h3, h4, h5, h6
+		font-weight 400
+
+	h1
+		font-size h1-font-size
+
+	h2
+		font-size h2-font-size
+
+	h3
+		font-size h3-font-size
+
+	h4
+		font-size h4-font-size
+		
+	h5
+		font-size h5-font-size
+
+	h6
+		font-size h6-font-size
+
+	a
+		color active-color
+		text-decoration none
+		&:hover
+			color darken(active-color, 10)
+
+	p
+		font-family paragraph-font-family
+		font-weight paragraph-font-weight
+		font-size paragraph-font-size
+		line-height paragraph-line-height
+		margin-bottom paragraph-margin-bottom
+		text-rendering paragraph-text-rendering
+		
+	pre
+		color code-color
+		font-family code-font-family
+		font-weight code-font-weight
+		font-size code-font-size
+		background-color code-background-color
+		border code-border-size code-border-style code-border-color
+		padding code-padding
+		margin-bottom code-margin-bottom
+		unless code-default-radius is 0
+			border-radius code-default-radius
+		radius-classes()
+		&.ww
+			> code
+				word-wrap break-word
+		> code
+			// display none
+			word-wrap normal
+		
+	hr
+		border hr-border-style hr-border-color
+		border-width hr-border-width 0 0
+		clear both
+		height 0
+		margin hr-margin
+
+	ul, ol, dl
+		font-size list-font-size
+		line-height list-line-height
+		margin-bottom list-margin-bottom
+		list-style-position list-style-position
+		font-family list-font-family
+		ul, ol, dl
+			margin-bottom 0
+			
+	ul, ol
+		margin-left list-side-margin
+		
+	dl
+		margin-bottom definition-list-margin-bottom
+		> dt
+			font-weight definition-list-header-weight
+			margin-bottom definition-list-header-margin-bottom
+
+	ul
+		&.{type-list-disc-class},
+		&.{type-list-circle-class},
+		&.{type-list-square-class},
+		&.{type-list-no-bullet-class}
+			ul
+				list-style-type inherit
+		&.{type-list-disc-class}
+			list-style-type disc
+		&.{type-list-circle-class}
+			list-style-type circle
+		&.{type-list-square-class}
+			list-style-type square
+		&.{type-list-no-bullet-class}
+			list-style none
+			margin-left 0
+		> li
+			font-family list-font-family
+			font-size list-font-size
+			line-height list-line-height
+			style-position list-style-position
+
+	blockquote
+		color blockquote-cite-font-color
+		padding blockquote-padding
+		border-left blockquote-border-left
+		margin-bottom blockquote-margin-bottom
+		cite
+			display block
+			font-size blockquote-cite-font-size
+			color blockquote-cite-font-color
+			margin blockquote-cite-margin
+			&:before
+				content blockquote-cite-prefix
+			a
+				color blockquote-cite-link-color

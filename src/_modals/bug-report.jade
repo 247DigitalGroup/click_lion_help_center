@@ -1,0 +1,22 @@
+.remodal(data-remodal-id="bug-report", data-remodal-options="hashTracking: false").bug-report.date-picker-base.ra
+  form
+    .header
+      h4 Bug Report
+    .body
+      .rw
+        .cl.lg-6
+          label.image-picker(data-image-picker, style="height: 260px; background-image: url(" + _a('/img/no-screenshot.png') + ")", data-no-image="url(/img/no-screenshot.png)")
+            input(type="file")
+          a(href="#").image-picker-cancel
+            span.fa.fa-trash.mr-10
+            | Remove Screenshot
+        .cl.lg-6
+          label Your email
+            input(type="email", name="email", placeholder="your@email.com")
+          label Seen date
+            small.ml-10 Date the bug was found
+            input(type="text", name="date-seen", placeholder="dd-mm-yyyy").date-picker
+          label Bug description
+            textarea(name="description", placeholder="Pure description, no narrative or conversational language.")
+          input(type="submit", value="Send", data-remodal-action="confirm").bt.w.ra.mr-10
+          a(href="#", data-remodal-action="cancel").bt.alt.ra Cancel

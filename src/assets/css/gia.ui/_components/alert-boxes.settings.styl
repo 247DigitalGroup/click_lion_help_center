@@ -1,0 +1,63 @@
+include-alert-boxes = true
+
+alert-box-background-color = darken(white, 4)
+alert-box-foreground-color = darken(secondary-color, 10)
+
+alert-box-border-left = rem-calc(5) solid alert-box-foreground-color
+alert-box-text-color = black
+alert-box-padding = rem-calc(8) rem-calc(35) rem-calc(8) rem-calc(15)
+alert-box-font-size = rem-calc(13)
+alert-box-link-font-weight = 500
+alert-box-close-font-size = rem-calc(20)
+alert-box-close-top = rem-calc(2)
+alert-box-close-right = rem-calc(10)
+alert-box-margin-bottom = include-types ? paragraph-margin-bottom : rem-calc(20)
+alert-box-margin = 0 0 alert-box-margin-bottom 0
+alert-box-radius = radius
+alert-box-round = round
+alert-box-default-radius = 0
+
+alert-box-colors = {}
+
+alert-box-colors[active-class] = {
+	ribbon: active-color,
+	background: lighten(active-color, 40),
+	link: darken(active-color, 10)
+}
+
+alert-box-colors[warning-class] = {
+	ribbon: warning-color,
+	background: lighten(warning-color, 40),
+	link: darken(warning-color, 10)
+}
+
+alert-box-colors[error-class] = {
+	ribbon: danger-color,
+	background: lighten(danger-color, 40),
+	link: darken(danger-color, 10)
+}
+alert-box-colors[danger-class] = alert-box-colors[error-class]
+
+alert-box-colors[info-class] = {
+	ribbon: info-color,
+	background: lighten(info-color, 30),
+	link: darken(info-color, 10)
+}
+
+alert-box-colors[success-class] = {
+	ribbon: success-color,
+	background: lighten(success-color, 40),
+	link: darken(success-color, 10)
+}
+
+alert-box-colors[disabled-class] = {
+	ribbon: disabled-color,
+	background: lighten(disabled-color, 40),
+	link: darken(disabled-color, 10)
+}
+
+alert-box-colors[alternate-class] = {
+	ribbon: darken(secondary-color, 20),
+	background: secondary-color
+	link: darken(secondary-color, 50)
+}

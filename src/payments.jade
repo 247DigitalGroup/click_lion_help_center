@@ -1,0 +1,33 @@
+extends _layouts/docs
+
+block var
+  - index = 5
+  - title = 'Payments'
+  - description = title
+  - url = '/payments.html'
+
+block content
+
+  section#payment-process
+    h1.title Payment process
+    .body
+      p ClickLion has simple payment process to make it easy for users to receive money from the platform. There are two payment processes.
+
+      h2 Payment from a withdrawal
+      p In ClickLion, you can withdraw funds from your wallet anytime you want. When we process the payment, we apply different payment method based on the amount you want to withdraw. If the amount is 
+        strong smaller than or equal to
+        |  $10000, the payment will be sent to your Paypal account, otherwise we will wire the money directly to your bank account. When the wire transfer is being processed, corresponding transaction of the withdrawal will have status of 
+        code pending
+        | .
+
+      h2 Payment from monthly revenue
+      p ClickLion users can 
+        a(href="#{doc}/account-management.html#change-payment-information") choose to be paid directly
+        |  when his or her revenue is delivered. In this case, if your revenue is smaller than ClickLion payment threshold ($100), the revenue will be still sent to your wallet, otherwise it will be processed as a withdrawal.
+      blockquote.note
+        p Transfer fee, if applicable, is covered by you.
+    
+  section#oayment-threshold
+    h1.title Payment threshold
+    .body
+      p To avoid spammy withdrawals, ClickLion has a payment threshold of $100. You are allowed to withdraw only if your efficient payment amount is greater than or equal to $100.

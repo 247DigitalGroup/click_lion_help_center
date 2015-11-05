@@ -1,0 +1,26 @@
+include-progress-bars = true
+
+progress-bar-background-color = darken(white, 3)
+progress-bar-margin-bottom = include-types ? paragraph-margin-bottom : rem-calc(20)
+
+progress-bar-heights = {}
+progress-bar-heights[xsmall-prefix] = rem-calc(3)
+progress-bar-heights[small-prefix] = rem-calc(5)
+progress-bar-heights[medium-prefix] = rem-calc(8)
+progress-bar-heights[large-prefix] = rem-calc(12)
+progress-bar-heights[xlarge-prefix] = rem-calc(15)
+progress-bar-heights[xxlarge-prefix] = rem-calc(20)
+
+progress-bar-colors = {}
+progress-bar-colors[active-class] = active-color
+progress-bar-colors[warning-class] = warning-color
+progress-bar-colors[error-class] = danger-color
+progress-bar-colors[danger-class] = danger-color
+progress-bar-colors[info-class] = info-color
+progress-bar-colors[success-class] = success-color
+progress-bar-colors[disabled-class] = disabled-color
+progress-bar-colors[alternate-class] = secondary-color
+
+progress-bar-radius = radius
+progress-bar-round = round
+progress-bar-default-radius = 0

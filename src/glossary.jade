@@ -1,0 +1,324 @@
+extends _layouts/docs
+
+block var
+  - index = 8
+  - title = 'Glossary'
+  - description = title
+  - url = '/glossary.html'
+
+block content
+
+  section#advertiser
+    h1.title Advertiser
+    .body
+      p
+        code Advertiser
+        |  is used to refer to a person who is interested in bringing interested visitors to his/her site and/or refer to a top navigation section which contains advertiser related features.
+
+      article#campaign
+        h2.title Campaign
+        .body
+          p
+            code Campaign
+            |  is used to refer to an entity that advertisers use to plan his article promotion. It is also used to refer to ClickLion report source entity. One 
+            code advertiser
+            |  would manage one or more campaigns at the same time.
+
+      article#article
+        h2.title Article
+        .body
+          p
+            code Article
+            |  is equivalent to other Content Syndication Networks' content. It presents a content (an article, a blog post, news, announcement, ... as long as it has a title and provide useful information) that advertiser chose to promote. An 
+            code Article
+            |  must contain an 
+            a(href="#article-title")
+              code Article Title
+            |  and can contain an 
+            a(href="#article-image")
+              code Article Image
+            | , 
+            a(href="#article-body")
+              code Article Body
+            |  and 
+            a(href="#article-publish-date")
+              code Article Publish Date
+            | . It is also used as a ClickLion report source entity. 
+            a(href="#report") Learn more
+            |  on them.
+
+      article#article-image
+        h2.title Article Image
+        .body
+          p
+            code Article Image
+            |  is an image that best describes the meaning of the 
+            a(href="#article")
+              code Article
+            | . Article images are used in recommendation widget (
+            a(href="#") See our recommendation format
+            | ). 
+            code Article Image
+            |  is automatically collected by Lion Collector (
+            a(href="#") Learn more about how ClickLion collects article from your sites
+            | ) or manually uploaded by advertisers. The image quality should be as high as possible and meets following requirements in order to gain readers attention:
+          ul
+            li
+              p Image width must be greater than or equal to 
+                code 320
+            li
+              p Image height must be greater than or equal to 
+                code 240
+            li
+              p Image ratio acceptable range 
+                code (width / height)
+                | : 
+                code (320/240 * 0.5) < ratio < (320/240 * 2)
+            li
+              p Allowed extensions: 
+                code jpg
+                | , 
+                code png
+
+      article#article-title
+        h2.title Article Title
+        .body
+          p
+            code Article Title
+            |  is the title of your promoted article. It will be used to display on publishers' websites. 
+            code Article Title
+            |  should have maximum of 85 characters for best display. If it's longer than 85 characters, there's a chance that part of the title is hidden behind other 
+            code Articles
+            |  in the same recommendation widget.
+          p 
+            a(href="#") Learn more
+            |  on how make your 
+            code Article Title
+            |  most attractive to readers.
+
+      article#article-body
+        h2.title Article Body
+        .body
+          p 
+            code Article Body
+            |  is some text that used to describe content of the 
+            a(href="#article")
+              code Article
+            | . It is used by Lion Matcher to match with users that are interested in the content. 
+            code Article Body
+            |  is automatically collected by Lion Collector (
+            a(href="#") Learn more
+            |  about how ClickLion collects article from your sites) or manually uploaded by advertisers.
+
+      article#article-publish-date
+        h2.title Article Publish Date
+        .body
+          p
+            code Article Publish Date
+            |  is the date that the article is published. We used this information to not recommend readers out-dated content which doesn't have any informative value to them. It is automatically collected by Lion Collector (
+            a(href="#") Learn more
+            |  about how ClickLion collects article from your sites) or manually uploaded by advertisers.
+
+  section#publisher
+    h1.title Publisher
+    .body
+      p
+        code Publisher
+        |  is used to refer to a person who wants to implement ClickLion recommendation code to his/her website to monetize his/her traffic and/or refer to a top navigation section which contains publisher related features.
+
+      article#domain
+        h2.title Domain
+        .body
+          p
+            code Domain
+            |  is used to present a website that publishers want to implement ClickLion recommendation code onto. It is also used to refer to ClickLion report source entity. One 
+            a(href="#publisher")
+              code Publisher
+            |  would manage one or more domains at the same time.
+
+      article#creative
+        h2.title Creative
+        .body
+          p
+            code Creative
+            |  is ClickLion recommendation widget that publishers use to implement onto their websites. Publishers can customize their 
+            code creatives
+            |  to display the recommendation in the way they want in order to get highest readers attention. 
+            code Creative
+            |  is also used as ClickLion report resource entity. One 
+            a(href="#domain")
+              code Domain
+            |  can contain one or more 
+            code creatives
+            | .
+
+  section#reader
+    h1.title Reader
+    .body
+      p
+        code Reader
+        |  is used to refer to individual person who goes to publishers' website and he/she is recommended by ClickLion.
+
+  section#transaction
+    h1.title Transaction
+    .body
+      p
+        code Transaction
+        |  is an action record created automatically by ClickLion or manually by users (advertisers or publishers) which involves money transferring from a specific source to specific destination.
+
+  section#report
+    h1.title Report
+    .body
+      p
+        code Report
+        |  refers to report section on the top navigation bar. It also refers to the performance report for a source entity (a campaign, an article, a domain or a creative) in a specific date range with different frequencies (hourly, daily or monthly). A 
+        code report
+        |  contains many statistics on many 
+        a(href="#") metrics
+        |  and intuitive graphs for advertisers and publishers to track their performance conveniently.
+
+      article#impression
+        h2.title Impression
+        .body
+          p
+            code Impression
+            |  is a report metric used by ClickLion report system. It is counted whenever an individual creative on publisher websites is loaded. If a webpage of a publisher is implemented with 2 creatives, there are 2 impressions counted for that publishers domain if that webpage is loaded by a reader.
+
+      article#page-view
+        h2.title Page View
+        .body
+          p
+            code Page View
+            |  is a report metric used by ClickLion report system. It is counted whenever a webpage of a publisher is visited and loaded by a 
+            a(href="#reader")
+              code reader
+            | .
+          blockquote.note
+            p
+              code Page View
+              |  is always equal to or lower than 
+              a(href="#impression")
+                code Impression
+              |  for a report source entity. If the source entity is a 
+              a(href="#creative")
+                code creative
+              | , they are equal. If the source entity is a 
+              a(href="#domain")
+                code domain
+              | , 
+              code Page View
+              |  is likely to be lower than
+              a(href="#impression")
+                code Impression
+              |  because when a web page is loaded, 
+              code Page View
+              |  is counted as 1 but 
+              a(href="#impression")
+                code Impression
+              |  might be counter as 2 or 3 based on number of 
+              code creatives
+              |  implemented on that page.
+
+      article#click
+        h2.title Click
+        .body
+          p
+            code Click
+            |  is a report metric used by ClickLion report system. Whenever a reader clicks a recommended article, Click will be counted as 1 for the clicked article, its campaign, the creative displaying that article and the domain of that creative.
+
+      article#ctr
+        h2.title CTR (Click Through Rate)
+        .body
+          p
+            code CTR
+            |  is the most important metric to measure how effective our recommendation is. 
+            code CTR
+            |  of a report entity is the number of clicks divided by the number of page view for that entity.
+          pre
+            code.
+              CTR = Clicks / Page View
+          p For example, if your creative received 
+            code 5
+            |  clicks out of 
+            code 1000
+            |  page views, your creative 
+            code CTR
+            |  would be 
+            code .5%
+            | .
+          blockquote.note
+            p When the report entity does not have any page view, 
+              code CTR
+              |  will be displayed as 
+              code 0
+              | .
+
+      article#estimated-earning
+        h2.title Estimated Earning
+        .body
+          p
+            code Estimated Earning
+            |  is a report metric used by ClickLion report system. It is only available for a few report source entities (domain, creative). For other source entities such as campaigns and articles, see 
+            a(href="#estimated-spending")
+              code Estimated Spending
+            | .
+          p
+            code Estimated Earning
+            |  is an estimation of the revenue you are getting from your domains. Because it is a rough estimation, 
+            code Estimated Earning
+            |  might be calibrated later according to our 
+            a(href="#{doc}/policies.html") Policies
+            | .
+
+      article#estimated-spending
+        h2.title Estimated Spending
+        .body
+          p
+            code Estimated Spending
+            |  is one of ClickLion report metric. It is only available for some report source entity (campaign, article). For other source entities such as domain and creative, see 
+            a(href="#estimated-earning")
+              code Estimated Earning
+            | .
+          p 
+            code Estimated Spending
+            |  is estimation of the budget you spent for the campaign. Being an estimation, 
+            code Estimated Spending
+            |  might be calibrated later due to our 
+            a(href="#{doc}/policies.html") Policies
+            | .
+
+      article#cpc
+        h2.title CPC (Cost per Click)
+        .body
+          p
+            code CPC
+            |  is a report metric used by ClickLion report system. It is the average cost of a click and is calculated as:
+          pre
+            code.
+              CPC = Estimated Earning / Clicks
+          p For example, if a domain receives 
+            code 100
+            |  clicks and its estimated earning is 
+            code $1.5
+            | , 
+            code CPC
+            |  is 
+            code $0.015 (15 cents)
+            | .
+          blockquote.note If a source entity does not have any clicks, 
+            code CPC
+            |  will be displayed as 
+            code 0
+            | .
+
+      article#displayed-rate
+        h2.title Displayed Rate
+        .body
+          p
+            code Display Rate
+            |  is a report metric used by ClickLion report system. It is only available for these report source entities: creatives, articles.
+          p
+            code Display Rate
+            |  of a report source entity is the percentage of number of pageviews that the recommendation is actually displayed out of all pageviews. It may be slightly smaller than 
+            code 100%
+            |  because sometime ClickLion is blocked by AdBlock or web browsers are not compatible (Javascript is disabled or ClickLion script is illegally injected).

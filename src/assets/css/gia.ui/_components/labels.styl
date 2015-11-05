@@ -1,0 +1,98 @@
+if include-labels
+	
+	label-fore-color-calc(background-color)
+		fore-color-calc(background-color, label-font-color-dark, label-font-color-light)
+	
+	create-label-base()
+		display label-display
+		cursor label-cursor
+		line-height label-line-height
+	
+	create-label(
+		margin-bottom = label-margin-bottom,
+		padding = label-padding-top label-padding-right label-padding-bottom label-padding-left,
+		background-color = secondary-color,
+		border = label-border,
+		border-radius = label-default-radius,
+		font-size = label-font-size,
+		font-weight = label-font-weight,
+		font-family = label-font-family,
+		line-height = label-line-height)
+		if typeof(border) is 'function'
+			border(background-color)
+		else
+			border border
+		create-label-base()
+		line-height line-height
+		padding padding
+		margin-bottom margin-bottom
+		background-color background-color
+		color fore-color-calc(background-color)
+		font-family font-family
+		font-size font-size
+		font-weight font-weight
+		if border-radius > 0
+			border-radius border-radius
+		
+	.{label-class}
+		create-label-base()
+		padding label-padding-top label-padding-right label-padding-bottom label-padding-left
+		font-size label-font-size
+		font-weight label-font-weight
+		font-family label-font-family
+		background-color secondary-color
+		margin-bottom label-margin-bottom
+		color label-fore-color-calc(@background-color)
+		if typeof(label-border) is 'function'
+			label-border()
+		else
+			border label-border
+		unless label-default-radius is 0
+			border-radius label-default-radius
+		radius-classes(label-radius)
+		&.{active-class}
+			background-color active-color
+			color label-fore-color-calc(@background-color)
+			if typeof(label-border) is 'function'
+				label-border(color: active-color)
+			else
+				border label-border
+		&.{warning-class}
+			background-color warning-color
+			color label-fore-color-calc(@background-color)
+			if typeof(label-border) is 'function'
+				label-border(color: warning-color)
+			else
+				border label-border
+		&.{error-class},
+		&.{danger-class}
+			background-color danger-color
+			color label-fore-color-calc(@background-color)
+			if typeof(label-border) is 'function'
+				label-border(color: danger-color)
+			else
+				border label-border
+		&.{info-class}
+			background-color info-color
+			color label-fore-color-calc(@background-color)
+			if typeof(label-border) is 'function'
+				label-border(color: info-color)
+			else
+				border label-border
+		&.{success-class}
+			background-color success-color
+			color label-fore-color-calc(@background-color)
+			if typeof(label-border) is 'function'
+				label-border(color: success-color)
+			else
+				border label-border
+		&.{classes-class}
+			background-color smoke
+			color label-fore-color-calc(@background-color)
+			if typeof(label-border) is 'function'
+				label-border(color: smoke)
+			else
+				border label-border
+		> strong,
+		> b
+			font-weight 600

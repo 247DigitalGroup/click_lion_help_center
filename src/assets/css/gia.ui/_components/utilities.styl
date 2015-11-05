@@ -1,0 +1,119 @@
+if include-utilities
+  
+  // Clearfix
+  .{utility-clearfix-class}
+    &:before,
+    &:after
+      content ''
+      display table
+    &:after
+      clear both
+  
+  // Hidden
+  .{utility-hidden-class}
+    display none !important
+
+  // Float Left
+  .{utility-left-class}
+    float left !important
+
+  // Float Right
+  .{utility-right-class}
+    float right !important
+
+  // Background Image Cover
+  .{utility-background-image-cover-class}
+    background-repeat no-repeat
+    background-position center
+    background-size cover
+    radius-classes()
+    
+  // No wrap
+  .{utility-no-wrap}
+    white-space nowrap !important
+
+    
+  // Text Styles
+  create-text-styles(prefix = null, important = false)
+    unless prefix is null
+      prefix += gap
+    postfix = null
+    if important
+      postfix = !important
+    .{prefix}{utility-text-left-class}
+      text-align left !important
+    .{prefix}{utility-text-center-class}
+      text-align center !important
+    .{prefix}{utility-text-right-class}
+      text-align right !important
+    .{prefix}{utility-text-justify-class}
+      text-align justify !important
+    .{prefix}{utility-vertical-align-top}
+      vertical-align top
+    .{prefix}{utility-vertical-align-bottom}
+      vertical-align bottom
+    .{prefix}{utility-vertical-align-middle}
+      vertical-align middle
+    .{prefix}{utility-vertical-align-baseline}
+      vertical-align baseline
+    .{prefix}{utility-text-transform-uppercase-class}
+      text-transform uppercase !important
+    .{prefix}{utility-text-transform-lowercase-class}
+      text-transform lowercase !important
+    .{prefix}{utility-text-transform-capitalize-class}
+      text-transform capitalize !important
+    .{prefix}{utility-text-transform-none-class}
+      text-transform none !important
+
+  // Margins & Paddings
+  create-gaps(prefix = null, important = false)
+    unless prefix is null
+      prefix += gap
+    postfix = null
+    if important
+      postfix = !important
+    for i in gap-sizes
+      .{prefix}{padding-prefix}{gap}{i}
+        padding rem-calc(i) postfix
+      .{prefix}{padding-prefix}{left-prefix}{gap}{i}
+        padding-left rem-calc(i) postfix
+      .{prefix}{padding-prefix}{right-prefix}{gap}{i}
+        padding-right rem-calc(i) postfix
+      .{prefix}{padding-prefix}{top-prefix}{gap}{i}
+        padding-top rem-calc(i) postfix
+      .{prefix}{padding-prefix}{bottom-prefix}{gap}{i}
+        padding-bottom rem-calc(i) postfix
+      .{prefix}{padding-prefix}{horizontal-prefix}{gap}{i}
+        padding-left rem-calc(i) postfix
+        padding-right @padding-left
+      .{prefix}{padding-prefix}{vertical-prefix}{gap}{i}
+        padding-top rem-calc(i) postfix
+        padding-bottom @padding-top
+      .{prefix}{margin-prefix}{gap}{i}
+        margin rem-calc(i) postfix
+      .{prefix}{margin-prefix}{left-prefix}{gap}{i}
+        margin-left rem-calc(i) postfix
+      .{prefix}{margin-prefix}{right-prefix}{gap}{i}
+        margin-right rem-calc(i) postfix
+      .{prefix}{margin-prefix}{top-prefix}{gap}{i}
+        margin-top rem-calc(i) postfix
+      .{prefix}{margin-prefix}{bottom-prefix}{gap}{i}
+        margin-bottom rem-calc(i) postfix
+      .{prefix}{margin-prefix}{horizontal-prefix}{gap}{i}
+        margin-left rem-calc(i) postfix
+        margin-right @margin-left
+      .{prefix}{margin-prefix}{vertical-prefix}{gap}{i}
+        margin-top rem-calc(i) postfix
+        margin-bottom @margin-top
+        
+  create-gaps(null, true)
+  create-text-styles(null, true)
+  @media small
+    create-gaps(small-prefix, true)
+    create-text-styles(small-prefix, true)
+  @media medium
+    create-gaps(medium-prefix, true)
+    create-text-styles(medium-prefix, true)
+  @media large
+    create-gaps(large-prefix, true)
+    create-text-styles(large-prefix, true)

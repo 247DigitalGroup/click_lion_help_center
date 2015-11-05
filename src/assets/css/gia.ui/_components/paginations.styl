@@ -1,0 +1,38 @@
+if include-paginations
+
+  ul.{pagination-class}
+    list-style none
+    padding 0
+    margin pagination-margin
+    > li
+      display inline-block
+      font-size 0
+      &:not(:last-child)
+        margin-right pagination-default-space
+      &.{pagination-unavailable-class}
+        > a
+          pagination-item-unavailable()
+      &.{pagination-current-class}
+        > a
+          pagination-item-current()
+          &:hover
+            pagination-item-current-hover()
+      > a
+        display block
+        font-size pagination-font-size
+        color pagination-text-color
+        padding pagination-item-padding
+        transition pagination-transition
+        &:hover
+          pagination-item-hover()
+
+    if pagination-default-radius > 0
+      border-radius pagination-default-radius
+    &.{radius-class}
+      > li
+        > a
+          border-radius pagination-radius
+    &.{round-class}
+      > li
+        > a
+          border-radius pagination-round

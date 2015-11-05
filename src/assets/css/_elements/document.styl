@@ -1,0 +1,100 @@
+@keyframes highlight
+  0%
+    background-color antiquewhite
+  100%
+    background-color auto
+    
+highlight()
+  animation highlight 2s ease
+
+.document
+  padding 60px 0 30px 0
+  max-width 800px
+  
+  @media small-only
+    p
+      font-size 13px
+  
+  code
+    word-break break-word
+
+  pre
+    overflow scroll
+
+  a
+    color active-color
+
+  h1, h2, h3, h4, h5, h6
+    font-weight bold
+    
+  h1
+    font-size 1.8em
+  
+  h2
+    font-size 1.6em
+  
+  h3
+    font-size 1.4em
+  
+  h4
+    font-size 1.2em
+  
+  h5
+    font-size 1.1em
+  
+  h6
+    font-size 1em
+    
+  li
+    p
+      margin-bottom 8px
+      
+  blockquote
+    padding 8px 15px
+    border none
+    border-radius radius
+    background-color smoke
+    &.note
+      background-color antiquewhite
+    p
+      margin 0 0 10px 0
+      font-size 13px
+    > *:last-child
+      margin-bottom 0
+      
+  code
+    background-color smoke
+    border-radius 3px
+    font-family font-family-monospace
+    font-size 13px
+    display inline-block
+    padding 0px 4px
+    border 1px solid darken(@background-color, 3)
+    
+  pre
+    code
+      border none
+      background-color transparent
+      
+  section
+    &:target
+      highlight()
+    h1.title
+      transition color .2s ease-in-out
+      margin 0 0 20px 0
+      padding-bottom 10px
+      border-bottom 1px solid gainsboro
+      line-height 35px
+      
+    article
+      padding 15px 0 0 0
+      margin-bottom 25px
+      &:target
+        highlight()
+      .body
+        > *:last-child
+          margin-bottom 0
+      h2.title
+        transition color .2s ease-in-out
+        font-size 1.4em
+        margin 0 0 15px 0

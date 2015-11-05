@@ -1,0 +1,81 @@
+include-switches = true
+
+switches-margin-bottom = include-types ? paragraph-margin-bottom : rem-calc(20)
+switches-margin = 0 0 switches-margin-bottom 0
+
+switches-radius = radius
+switches-round = round
+switches-default-radius = 0
+switches-handler-shadow = rem-calc(1) rem-calc(1) rem-calc(3) 0 rgba(black, .4)
+
+switches-transition()
+	transition all .2s ease-in-out
+	transform translate3d(0, 0, 0)
+	
+switches-handler-transition()
+	transition left .1s ease-in-out
+	transform translate3d(0, 0, 0)
+
+switches-sizes = {}
+
+switches-sizes[xsmall-prefix] = {
+	handler: rem-calc(8),
+	border: rem-calc(1)
+}
+switches-sizes[small-prefix] = {
+	handler: rem-calc(12),
+	border: rem-calc(2)
+}
+switches-sizes[medium-prefix] = {
+	handler: rem-calc(18),
+	border: rem-calc(0)
+}
+switches-sizes[large-prefix] = {
+	handler: rem-calc(20),
+	border: rem-calc(3)
+}
+switches-sizes[xlarge-prefix] = {
+	handler: rem-calc(24),
+	border: rem-calc(3)
+}
+switches-sizes[xxlarge-prefix] = {
+	handler: rem-calc(30),
+	border: rem-calc(3)
+}
+switches-default-size = switches-sizes[medium-prefix]
+
+switches-colors = {}
+switches-colors[active-class] = {
+	background: active-color,
+	handler: white
+}
+switches-colors[warning-class] = {
+	background: warning-color,
+	handler: white
+}
+switches-colors[error-class] = {
+	background: danger-color,
+	handler: white
+}
+switches-colors[danger-class] = {
+	background: danger-color,
+	handler: white
+}
+switches-colors[info-class] = {
+	background: info-color,
+	handler: white
+}
+switches-colors[success-class] = {
+	background: success-color,
+	handler: white
+}
+switches-colors[disabled-class] = {
+	background: disabled-color,
+	handler: white
+}
+switches-colors[alternate-class] = {
+	background: secondary-color,
+	handler: white
+}
+
+switches-default-color = switches-colors[active-class]

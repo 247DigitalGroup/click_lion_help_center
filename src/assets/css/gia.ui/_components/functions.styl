@@ -1,0 +1,40 @@
+
+fore-color-calc(background-color = transparent, dark-color = black, light-color = white)
+	if luminosity(background-color) > .65
+		dark-color
+	else
+		light-color
+
+
+radius-classes(_radius = radius, _round = round)
+	&.{radius-class}
+		border-radius _radius
+	&.{round-class}
+		border-radius _round
+		
+thumbnail-classes()
+	&.{thumbnail-class}
+		display thumbnail-display
+		border thumbnail-border-width thumbnail-border-style thumbnail-border-color
+		padding thumbnail-padding-top thumbnail-padding-right thumbnail-padding-bottom thumbnail-padding-left
+		background thumbnail-background
+		if thumbnail-default-radius > 0
+			border-radius thumbnail-default-radius
+		radius-classes(thumbnail-radius, thumbnail-round)
+
+block-clear()
+	&:before,
+	&:after
+		content ''
+		display table
+		clear both
+
+strip-unit(num)
+	numValue = unit(num)
+
+rem-calc(value, base-value = rem-base)
+	u = unit(value)
+	if (u is 'px' or u is '')
+		return unit(value / base-value, 'rem')
+	else
+		return unit(value, u)

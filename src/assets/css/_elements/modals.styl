@@ -1,0 +1,197 @@
+html.remodal-is-locked
+  overflow hidden
+  
+.remodal,
+[data-remodal-id]
+  display none
+  
+.remodal-overlay
+  position fixed
+  z-index 8
+  top 0
+  right 0
+  bottom 0
+  left 0
+  display none
+  
+.remodal-wrapper
+  position fixed
+  z-index 9
+  top 0
+  right 0
+  bottom 0
+  left 0
+  display none
+  overflow auto
+  text-align center
+  overflow-scrolling touch
+  &:after
+    content ''
+    display inline-block
+    height 100%
+    margin-left -.05em
+    
+.remodal-overlay,
+.remodal-wrapper
+  backface-visibility hidden
+  
+.remodal
+  position relative
+  outline none
+  text-size-adjust 100%
+  
+.remodal-is-initialized
+  display inline-block
+  
+// theming
+
+.remodal-overlay
+  background rgba(black, .33)
+  &.remodal-is-opening,
+  &.remodal-is-closing
+    animation-fill-mode forwards
+  &.remodal-is-opening
+    animation remodal-overlay-opening-keyframes .3s
+  &.remodal-is-closing
+    animation remodal-overlay-closing-keyframes .3s
+  
+.remodal-bg
+  &.remodal-is-opening,
+  &.remodal-is-opened
+    filter blur(3px)
+    -webkit-filter blur(3px)
+    
+.remodal,
+.remodal-wrapper:after
+  vertical-align middle
+  
+.remodal-wrapper
+  padding 10px 10px 0
+  
+.remodal
+  text-align initial
+  box-sizing border-box
+  width 100%
+  margin-bottom 10px
+  padding 0
+  transform translate3d(0, 0, 0)
+  color #2b2e38
+  background-color white
+  background-clip content-box
+  border 1px solid rgba(black, .05)
+  box-shadow 5px 5px 30px 0 rgba(black, .25)
+  
+  &.remodal-is-opening
+    animation remodal-opening-keyframes .3s
+  &.remodal-is-closing
+    animation remodal-closing-keyframes .3s
+  
+  &.ra
+    size = radius + 1px
+    border-radius size
+    .header:first-child
+      border-top-left-radius size
+      border-top-right-radius size
+    .footer:last-child
+      border-bottom-left-radius size
+      border-bottom-right-radius size
+    .body:last-child
+      border-bottom-left-radius size
+      border-bottom-right-radius size
+    .body:first-child
+      border-top-left-radius size
+      border-top-right-radius size
+  
+  &.xs
+    max-width 300px
+  &.sm
+    max-width 400px
+    
+  .body
+    padding 15px
+    
+  .footer
+    padding 10px 15px
+    background-color snow
+    .bt
+      margin-bottom 0
+      
+  .header
+    padding 15px 15px 12px 15px
+    background-color white-smoke
+    h1, h2, h3, h4, h5, h6
+      margin 0
+      font-weight light-font-weight
+      strong
+        font-weight demi-bold-font-weight
+  
+.remodal-close
+  position absolute
+  top 0
+  left 0
+  display block
+  overflow visible
+  width 35px
+  height @width
+  margin 0
+  padding 0
+  cursor pointer
+  transition color .2s
+  text-decoration none
+  color #95979c
+  border 0
+  outline 0
+  background transparent
+  
+.remodal-close
+  &:hover,
+  &:focus
+    color #2b2e38
+  &:before
+    font-size 25px
+    line-height 35px
+    position absolute
+    top 0
+    left 0
+    display block
+    width @line-height
+    content "\00d7"
+    text-align center
+    
+@keyframes remodal-opening-keyframes
+  from
+    transform scale(1.05)
+    opacity 0
+  to
+    transform none
+    opacity 1
+
+@keyframes remodal-closing-keyframes
+  from
+    transform scale(1)
+    opacity 1
+  to
+    transform scale(.95)
+    opacity 0
+    
+@keyframes remodal-overlay-opening-keyframes
+  from
+    opacity 0
+  to
+    opacity 1
+
+@keyframes remodal-overlay-closing-keyframes
+  from
+    opacity 1
+  to
+    opacity 0
+
+@media only screen and (min-width: 641px)
+  .remodal
+    max-width 700px
+    
+.lt-ie9
+  .remodal-overlay
+    background #2b2e38
+  .remodal
+    width 700px

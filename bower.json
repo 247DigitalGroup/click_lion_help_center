@@ -1,0 +1,40 @@
+{
+  "name": "clicklion",
+  "version": "0.0.1",
+  "authors": [
+    "Gia <iam@gia.ninja>"
+  ],
+  "description": "docs.clicklion.com",
+  "main": "gulp",
+  "moduleType": [
+    "es6",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "css",
+    "stylus",
+    "jade",
+    "coffeescript",
+    "reactjs"
+  ],
+  "license": "MIT",
+  "homepage": "http://clicklion.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "animate.css": "~3.4.0",
+    "fastclick": "~1.0.6",
+    "fontawesome": "*",
+    "jquery": "~2.1.4",
+    "normalize": "~1.0.4",
+    "remodal": "~1.0.3",
+    "tooltipster": "~3.3.0",
+    "rainbow": "~1.1.9"
+  }
+}

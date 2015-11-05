@@ -1,0 +1,21 @@
+if include-helpers
+	
+	.{helper-class}
+		bg = #e0ced1
+		
+		.{grid-row-class}
+			for i in (0 .. 11)
+				> .{grid-column-class}:nth-child({i})
+					// background-color darken(bg, i * 10)
+					> div
+						background-color darken(bg, i * 10)
+			.{grid-column-class}
+				color white
+
+		.{grid-container-class}, .{grid-row-class}, .{grid-column-class}
+			background-color transparent
+			
+		ul.{block-grid-class}
+			> li
+				> div
+					background-color bg

@@ -1,0 +1,258 @@
+extends _layouts/docs
+
+block var
+  - index = 2
+  - title = 'Account Management'
+  - description = title
+  - url = '/account-management.html'
+
+block content
+
+  section#account-setting
+    h1.title Account Setting
+    .body
+
+      article#change-your-password
+        h2.title Change your password
+        .body
+          p To change your password, please follow these steps:
+          ol
+            li
+              p
+                a(href="#{clicklion}/users/sign_in" target="_blank") Sign in
+                |  to your ClickLion account.
+            li
+              p Hover over your avatar to reveal the dropdown menu and click 
+                code Edit your profile
+                | .
+            li
+              p Choose 
+                img(src="https://camo.githubusercontent.com/7119389da53464f8aa870f03c5bbf1a95cc1ee85/687474703a2f2f7075752e73682f6b7a704e722f376165366138366132352e706e67")
+                |  from the left menu.
+            li
+              p Fill in the form to change your password.
+
+      article#recover-your-password
+        h2.title Recover your password
+        .body
+          p To recover your password, please follow these steps:
+          ol
+            li
+              p Click 
+                a(href="#{clicklion}/users/password/new" target="_blank") here
+                |  to go to the recovery form.
+            li
+              p Fill in your account email and submit the form.
+            li 
+              p An email with instructions to recover your password will be sent to you within couple minutes. It might take a little longer in some unusual cases, but should not take more than 1 hour.
+            li
+              p Follow the instructions in the email to recover your password.
+
+      article#update-contact-information
+        h2.title Update contact information
+        .body
+          p To update your contact information, please follow these steps:
+          ol
+            li
+              p
+                a(href="#{clicklion}/users/sign_in" target="_blank") Sign in
+                |  to your ClickLion account.
+            li
+              p Hover over your avatar to reveal the dropdown menu and click 
+                code Edit your profile
+                | .
+            li
+              p Fill in the form and submit the changes.
+
+      article#change-payment-information
+        h2.title Change payment information
+        .body
+          p Payment information is very important please take all precautions to make sure you have entered all correct information. To change your payment information, please follow these steps:
+          ol
+            li
+              p
+                a(href="#{clicklion}/users/sign_in" target="_blank") Sign in
+                |  to your ClickLion account.
+            li
+              p Hover over your avatar to reveal the dropdown menu and click 
+                code Edit your profile
+                | .
+            li
+              p Choose 
+                img(src="https://camo.githubusercontent.com/c548ed1334ddee2fe9cf363c672118fa5a7c486c/687474703a2f2f7075752e73682f6b7a73304b2f383233646130636539392e706e67")
+                |  from left menu.
+            li
+              p Fill in the form to change your payment information. The form contains following fields:
+              ul
+                li
+                  p
+                    strong Payment Options
+                    | : This field specifies how ClickLion sends you payments. There are two options: 
+                    code Pay Direct
+                    |  and 
+                    code Transfer to Wallet
+                    | . If you choose 
+                    code Pay direct
+                    | , ClickLion will issue payments via Paypal. 
+                    code Bank Transfer
+                    |  will be available to publisher who earn more than $10,000 a month. With 
+                    code Transfer to Wallet
+                    |  option ClickLion will send funds to your wallet, in which you can use to pay for advertisement or withdraw anytime you chooses.
+                li
+                  p
+                    strong Paypal Email
+                    | : Your Paypal Account for ClickLion payments.
+                li
+                  p
+                    strong Bank Account
+                    | : Necessary information for your bank account.
+            li
+              p Submit the form to save your information.
+          blockquote.note
+            p Your information is secured, and we will not disclose any payment information to third parties.
+
+  section#your-wallet
+    h1.title Your wallet
+    .body
+
+      article#add-funds-to-your-wallet
+        h2.title Add funds to your wallet
+        .body
+          p To purchase a campaign, you need to have funds in your wallet. To add funds to your wallet, please follow these steps:
+          ol
+            li
+              p
+                a(href="#{clicklion}/users/sign_in" target="_blank") Sign in
+                |  to your ClickLion account.
+            li
+              p Hover over your avatar to reveal the dropdown menu and click 
+                code Edit your profile
+                | .
+            li
+              p Choose 
+                img(src="https://camo.githubusercontent.com/86b97e9407e594d273ccfbfb164e4a7fcdae1424/687474703a2f2f7075752e73682f6b416d32572f663430613061393162622e706e67")
+                |  from the left menu.
+            li
+              p Fill in the 
+                code Add money to your balance
+                |  form.
+            li
+              p Click 
+                code Pay with card
+                |  to proceed.
+          blockquote.note
+            p Every time you successfully add funds to your wallet, one 
+              a(href="#{doc}/glossary.html#transaction") transaction
+              |  record will be created to represent your action. 
+              a(href="#") Learn more
+              |  on transaction types.
+
+      article#withdraw-funds-from-your-wallet
+        h2.title Withdraw funds from your wallet
+        .body
+          p To withdraw funds from your wallet, please follow these steps:
+          ol
+            li
+              p
+                a(href="#{clicklion}/users/sign_in" target="_blank") Sign in
+                |  to your ClickLion account.
+            li
+              p Hover over your avatar to reveal the dropdown menu and click 
+                code Edit your profile
+                | .
+            li
+              p Choose 
+                img(src="https://camo.githubusercontent.com/86b97e9407e594d273ccfbfb164e4a7fcdae1424/687474703a2f2f7075752e73682f6b416d32572f663430613061393162622e706e67")
+                |  from the left menu.
+            li
+              p Fill in the
+                code Withdraw
+                |  form.
+            li
+              p Click 
+                code Withdraw
+                |  to proceed.
+          blockquote.note
+            p Your minimum withdrawal amount is $100. In case the amount is smaller than $10,000, your withdrawn money will be transfered to your Paypal, otherwise it will be wire-transfered directly to your bank account.
+            p Every time you successfully withdraw funds from your wallet, a 
+              a(href="#{doc}/glossary.html#transaction") transaction
+              |  record classified as 
+              code payout
+              |  will be created to represent your action. 
+              a(href="#") Learn more
+              |  on transaction types.
+
+      article#pay-for-your-campaign
+        h2.title Pay for your campaign
+        .body
+          p TO-DO
+
+  section#your-transaction-list
+    h1.title Your transaction list
+    .body
+      p To access your transaction, please follow these steps:
+      ol
+        li
+          p
+            a(href="#{clicklion}/users/sign_in" target="_blank") Sign in
+            |  to your ClickLion account.
+        li
+          p Hover over your avatar to reveal the dropdown menu and click 
+            code Edit your profile
+            | .
+        li
+          p Choose 
+            img(src="https://camo.githubusercontent.com/b8298b76005fa568134659901f9951f0b0b05487/687474703a2f2f7075752e73682f6b416e33532f373935356137333535312e706e67")
+            |  from the left menu.
+      p You should see a table of transaction which contains following columns:
+      ul
+        li
+          p
+            strong Date
+            | : The date that the transaction is created.
+        li
+          p
+            strong Description
+            | : Description of the transaction.
+        li
+          p
+            strong Type
+            | : Type of the transaction. There are many types of transaction in ClickLion, 
+            a(href="#") learn more
+            | .
+        li
+          p
+            strong Status
+            | : Current status of the transaction. 
+            a(href="#") Learn more
+            |  about transaction status.
+        li
+          p
+            strong Amount
+            | : The amount of money for that transaction.
+      blockquote.note
+        p Transaction table is read-only. History can't be rewriten!
+
+  section#privacy-and-security
+    h1.title Privacy and Security
+    .body
+
+      article#does-clicklion-collect-information-from-my-site
+        h2.title Does ClickLion collect information from my site?
+        .body
+          p TO-DO
+
+      article#what-does-clicklion-do-with-my-personal-information
+        h2.title What does ClickLion do with my personal information?
+        .body
+          ul
+            li
+              p ClickLion uses user names in its interface and email.
+            li
+              p ClickLion uses emails and encrypted passwords to authorize users.
+            li
+              p ClickLion uses Paypal emails to issue payments and process withdrawals.
+            li
+              p ClickLion uses bank account information (name, country, bank name, swift code, account number) to make payments and withdrawals.
+            li
+              p ClickLion uses website information (mark up, stylesheet, image and content) to prepare recommendations.

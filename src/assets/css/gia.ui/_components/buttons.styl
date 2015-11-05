@@ -1,0 +1,126 @@
+if include-buttons
+	
+	button-fore-color-calc(background-color)
+		fore-color-calc(background-color, button-font-color-dark, button-font-color-light)
+	
+	create-button-base()
+		cursor cursor-pointer-value
+		display button-display
+		text-align button-text-align
+	
+	create-button(
+		padding = button-medium-padding-vertical button-medium-padding-horizontal,
+		background-color = active-color,
+		background-hover-color = darken(background-color, button-function-factor),
+		border-radius = button-default-radius,
+		expanded = false,
+		disabled = false,
+		font-size = button-medium-font-size,
+		font-weight = button-medium-font-weight,
+		font-family = button-font-family,
+		margin-bottom = button-margin-bottom,
+		line-height = button-line-height,
+		transition = button-transition,
+		transition-duration = button-transition-duration,
+		transition-easing = button-transition-easing)
+		create-button-base()
+		padding padding
+		margin-bottom margin-bottom
+		background-color background-color
+		font-family font-family
+		font-size font-size
+		font-weight font-weight
+		if border-radius > 0
+			border-radius border-radius
+		if expanded
+			width 100%
+		if transition
+			transition unquote('background-color') transition-duration transition-easing
+		&:hover
+			background-color background-hover-color
+
+	// Buttons
+	.{button-class}
+		create-button-base()
+		vertical-align top
+		margin-bottom button-margin-bottom
+		font-family button-font-family
+		background-color secondary-color
+		color button-font-color-dark
+		border button-border-width button-border-style darken(@background-color, button-function-factor)
+		padding button-medium-padding-top button-medium-padding-right button-medium-padding-bottom button-medium-padding-left
+		font-size button-medium-font-size
+		font-weight button-medium-font-weight
+		line-height button-line-height
+		if button-default-radius > 0
+			border-radius button-default-radius
+		if button-transition
+			transition background-color button-transition-duration button-transition-easing
+		radius-classes(button-radius, button-round)
+		&:hover
+			color inherit
+		&:not(.{disabled-class}):hover
+			background-color darken(secondary-color, button-function-factor)
+		// sizes
+		&.{xsmall-prefix}
+			padding button-extra-small-padding-top button-extra-small-padding-right button-extra-small-padding-bottom button-extra-small-padding-left
+			font-size button-extra-small-font-size
+			font-weight button-extra-small-font-weight
+		&.{small-prefix}
+			padding button-small-padding-top button-small-padding-right button-small-padding-bottom button-small-padding-left
+			font-size button-small-font-size
+			font-weight button-small-font-weight
+		&.{medium-prefix}
+			padding button-medium-padding-top button-medium-padding-right button-medium-padding-bottom button-medium-padding-left
+			font-size button-medium-font-size
+			font-weight button-medium-font-weight
+		&.{large-prefix}
+			padding button-large-padding-top button-large-padding-right button-large-padding-bottom button-large-padding-left
+			font-size button-large-font-size
+			font-weight button-large-font-weight
+		// types
+		&.{expanded-class}
+			width 100%
+		&.{disabled-class}
+			opacity button-disabled-opacity
+			cursor button-disabled-cursor
+			&:hover
+				color inherit
+		// colors
+		&.{alternate-class}
+			background-color secondary-color
+			color button-fore-color-calc(@background-color)
+			border button-border-width button-border-style darken(@background-color, button-function-factor)
+			&:not(.{disabled-class}):hover
+				background-color darken(secondary-color, button-function-factor)
+		&.{active-class}
+			background-color active-color
+			color button-fore-color-calc(@background-color)
+			border button-border-width button-border-style darken(@background-color, button-function-factor)
+			&:not(.{disabled-class}):hover
+				background-color darken(active-color, button-function-factor)
+		&.{info-class}
+			background-color info-color
+			color button-fore-color-calc(@background-color)
+			border button-border-width button-border-style darken(@background-color, button-function-factor)
+			&:not(.{disabled-class}):hover
+				background-color darken(info-color, button-function-factor)
+		&.{success-class}
+			background-color success-color
+			color button-fore-color-calc(@background-color)
+			border button-border-width button-border-style darken(@background-color, button-function-factor)
+			&:not(.{disabled-class}):hover
+				background-color darken(success-color, button-function-factor)
+		&.{warning-class}
+			background-color warning-color
+			color button-fore-color-calc(@background-color)
+			border button-border-width button-border-style darken(@background-color, button-function-factor)
+			&:not(.{disabled-class}):hover
+				background-color darken(warning-color, button-function-factor)
+		&.{danger-class},
+		&.{error-class}
+			background-color danger-color
+			color button-fore-color-calc(@background-color)
+			border button-border-width button-border-style darken(@background-color, button-function-factor)
+			&:not(.{disabled-class}):hover
+				background-color darken(danger-color, button-function-factor)

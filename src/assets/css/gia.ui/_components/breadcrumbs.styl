@@ -1,0 +1,52 @@
+if include-breadcrumbs
+	
+	create-breadcrumb-container()
+		margin 0 0 breadcrumb-margin-bottom
+		padding 0
+		font-size 0
+		display block
+	
+	create-breadcrumb-items()
+		display inline-block
+		font-size breadcrumb-font-size
+		text-transform breadcrumb-text-transform
+		&.{breadcrumb-current-item-class}
+			color breadcrumb-font-color-current
+			cursor breadcrumb-cursor-current
+			> a
+				color breadcrumb-font-color-current
+		&.{breadcrumb-unavailable-item-class}
+			color breadcrumb-font-color-unavailable
+			cursor breadcrumb-cursor-unavailable
+			> a
+				color breadcrumb-font-color-unavailable
+		&:not(:first-child)
+			&:before
+				content breadcrumb-slash
+				padding breadcrumb-slash-padding
+				color breadcrumb-slash-color
+	
+	ul.{breadcrumb-class},
+	nav.{breadcrumb-class}
+		create-breadcrumb-container()
+		&.{breadcrumb-light-class}, &.{breadcrumb-dark-class}
+			radius-classes(breadcrumb-radius, breadcrumb-round)
+			if breadcrumb-default-radius > 0
+				border-radius breadcrumb-default-radius
+			padding breadcrumb-padding
+			&.{breadcrumb-border-class}
+				border-width breadcrumb-border-size
+				border-style breadcrumb-border-style
+		&.{breadcrumb-light-class}
+			background-color breadcrumb-light-background-color
+			border-color breadcrumb-light-border-color
+		&.{breadcrumb-dark-class}
+			background-color breadcrumb-dark-border-color
+			border-color breadcrumb-dark-border-color
+			> li, > a
+				&.{breadcrumb-current-item-class}
+					color white
+					> a
+						color white
+		> li, > a
+			create-breadcrumb-items()

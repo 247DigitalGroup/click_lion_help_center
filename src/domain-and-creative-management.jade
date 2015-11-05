@@ -1,0 +1,368 @@
+extends _layouts/docs
+
+block var
+  - index = 4
+  - title = 'Domain and Creative Management'
+  - description = title
+  - url = '/domain-and-creative-management.html'
+
+block content
+
+  section#how-to-register-a-domain-to-get-high-user-experience-and-revenue-from-your-traffic
+    h1.title How to register a domain to get high user experience and revenue from your traffic?
+    .body
+      p To register a domain as publisher, please follow these steps:
+      ol
+        li
+          p
+            a(href="#{clicklion}/users/sign_in") Sign in
+            |  to your ClickLion account.
+        li
+          p In
+            code Publisher
+            |  section on the top navigation bar, click 
+            img(src="https://camo.githubusercontent.com/e29b7dca2b63e8373f7c1eabe0bb71176cec9a08/687474703a2f2f7075752e73682f6b774244512f636638663530316535362e706e67")
+            |  to open the domain registration form.
+        li
+          p There are two steps to register a domain. First you will need to declare your domain, second you are required to authorize your ownership of the domain.
+          ol
+            li
+              p Fill your domain in 
+                code Address
+                |  field. The domain must include protocols (http, https). For instance, 
+                code http://apublisher.com
+                |  is valid while 
+                code publisher.com
+                |  is not. The domain must not be authorized by any other users.
+            li
+              p Turn 
+                code Sensitive
+                |  on if you allow sensitive content to be recommended on your website. Learn more about sensitive content in our 
+                a(href="#{doc}/policies.html") policies
+                | .
+            li
+              p Click 
+                code Create
+                |  to register the domain and move to step 2.
+            li
+              p Download verification code. It is a HTML file containing a secret code for us to recognize the domain.
+            li
+              p Upload the file to your domain so we can reach it via 
+                code http://yourdomain.com/clicklion_code.html
+                |  where 
+                code http://yourdomain.com
+                |  is the domain address you registered.
+            li
+              p Click 
+                code Verify
+                |  after you have done all above steps.
+      blockquoate.note
+        p Your domain will have status of 
+          code unauthorized
+          |  until you complete verification process (
+          a(href="#") Learn more
+          |  about domain statuses). You can verify your domain anytime you want.
+
+  section#understand-your-domain
+    h1.title Understand your domain
+    .body
+      p
+        a(href="#{doc}/glossay.html#domain") Domain
+        |  is where you can add creatives to put it in your website. It's important for publishers to understand their domains.
+
+      article#states-statuses
+        h2.title States (Statuses)
+        .body
+          p A domain will likely run through some states. There are totally 4 states that a domain could be:
+          pre
+            code.
+              unauthorized -> reviewing <-> disapproved
+                                        |
+                                         -> approved ---> (suspended)
+          ul
+            li
+              p
+                strong unauthorized
+                | : When you registered your domain, that domain will start with 
+                code unauthorized
+                |  state. When the domain is in this state, you cannot do anything except authorizing it.
+            li
+              p
+                strong reviewing
+                | : After you have authorized the domain, its state will be 
+                code reviewing
+                | . In this state, your domain is being reviewed by ClickLion staffs. If it's approved, it's state will be 
+                code approved
+                | , otherwise it's 
+                code disapproved
+                | .
+            li
+              p 
+                strong approved
+                | : In this state, your domain is ready to run, you can implement its creatives to start earning revenue.
+            li
+              p
+                strong disapproved
+                | : In this state, you should see a warning in your domain page telling the reason for us to disapproved your domain. You can fix the issue and 
+                a(href="#{clicklion}/contact" target="_blank")
+                  contact us
+                |  if you want us to review your domain one more time.
+            li
+              p
+                strong suspended
+                | : In case your domain interferes with our policies, we will suspend it and obviously its state will be 
+                code suspended
+                | .
+          blockquote.note
+            p If your domain is not in approved state and you still implement its creatives on your website. The creatives will show empty recommendation. 
+              a(href="#understand-your-creatives") See more
+              |  to understand your creatives.
+
+      article#subdomains
+        h2.title Subdomains
+        .body
+          p Right nowm, ClickLion considers subdomains as different domains to the root domain. For example, 
+            code example.com
+            |  and 
+            code us.example.com
+            |  are considered as 2 separated domains. So if you want a creative to be on many subdomains, it's impossible for now.
+          blockquote.note Multiple subdomains will be supported in next release.
+
+  section#add-creatives-to-your-domain
+    h1.title Add creatives to your domain
+    .body
+      p To add creatives to your domain, please follow these steps:
+      ol
+        li
+          p 
+            a(href="#{clicklion}/users/sign_in" target="_blank") Sign in
+            |  to your ClickLion account.
+        li 
+          p In 
+            code Publisher
+            |  section on top navigation, click on the domain you wanted to add creatives to. If you don't have any domains there, 
+            a(href="#how-to-register-a-domain-to-get-high-user-experience-and-revenue-from-your-traffic") learn more
+            |  on how to register a domain.
+        li
+          p Click on 
+            code Add Creative
+            |  then choose which style of creative do you want to add. There are two styles 
+            code Text
+            |  and 
+            code Text & Photo
+            | . With 
+            code Text
+            |  style, your creative will recommend text only articles that have on title. With 
+            code Text & Photo
+            | , it will serve articles with title and image.
+        li
+          p After you chose one style, a form for you to add creative will show up. Fill in necessary fields and click 
+            code Save
+            |  to add the creative to the domain.
+
+  section#implement-recommendation-code-on-your-website
+    h1.title Implement recommendation code on your website
+    .body
+
+      p ClickLion recommends articles to your readers by executing a script. That script is loaded and run right after your reader visits your website. To implement that script, please follow these steps:
+      ol
+        li
+          p 
+            a(href="#{clicklion}/users/sign_in" target="_blank") Sign in
+            |  to your ClickLion account.
+        li
+          p Make sure you already have an approved domain. If you didn't, 
+            a(href="#how-to-register-a-domain-to-get-high-user-experience-and-revenue-from-your-traffic") learn more
+            |  on how to register a domain.
+        li
+          p On 
+            code Publisher
+            |  section, click on the domain you are going to implement recommendation code.
+        li
+          p Click on a creative in the table. If you don't have any creative, 
+            a(href="#add-creatives-to-your-domain") learn more
+            |  on how to create a creative.
+        li
+          p Look for 
+            code CODE SNIPPET
+            |  section, copy the text in grey box. It's the recommendation code for your creative.
+        li
+          p Copy and paste that script to your website (every page you want CLickLion to recommend articles to readers).
+        li
+          p Deploy your updated website to make sure your reader will have ClickLion code in your markup.
+
+  section#customize-your-creatives
+    h1.title Customize your creatives
+    .body
+      blockquote
+        p Each creative can be customized in Edit creative page. There are some basic configurations to customize how your creatives display in your website.
+      
+      h3 General Configs
+      table
+        thead
+          tr
+            th Config
+            th Description
+            th Value
+        tbody
+          tr
+            td Number of articles
+            td The number of items displayed in your creative.
+            td 1 - 10
+          tr
+            td Number of internal articles
+            td The number of internal article displayed in your creative (less than or equal to number of articles mentioned above).
+            td 1 - 10
+          tr
+            td Number of columns
+            td The number of horizontally divided columns in your creative.
+            td 1 - 5
+          tr
+            td Show article source
+            td Allow source text (example: 
+              code clicklion.com
+              | ) to be shown in each creative's article item.
+            td yes/no
+      
+      h3 Widget Configs
+      h4 Text Creative
+      table
+        thead
+          tr
+            th Config
+            th Description
+            th Value
+        tbody
+          tr
+            td Show bullets
+            td Show a bullet before each creative's article item.
+            td yes/no
+
+      h3 Manual Configs
+      p Check out the following HTML source for further understanding of how to manually style your creative:
+      h4 Text Creative
+      pre
+        code(data-language="html").
+          &lt;!-- creative start --&gt;
+          &lt;div class=&quot;cl-wr&quot;&gt;
+             &lt;div class=&quot;cl-ab&quot;&gt;&lt;a href=&quot;/&quot; target=&quot;_blank&quot;&gt;Recommended by&lt;/a&gt;&lt;/div&gt;
+             &lt;ul class=&quot;cl-awoi [cl-bl] [cl-gr-2 cl-gr-3 cl-gr-4 cl-gr-5]&quot;&gt;
+                &lt;li&gt;
+                   &lt;a href=&quot;http://article.url.goes.here&quot;&gt;
+                      &lt;h4 class=&quot;cl-t&quot;&gt;Article Title Goes Here&lt;/h4&gt;
+                      &lt;p class=&quot;cl-s&quot;&gt;Article Source Goes Here&lt;/p&gt;
+                   &lt;/a&gt;
+                &lt;/li&gt;
+                &lt;!-- more article item goes here --&gt;
+             &lt;/ul&gt;
+          &lt;/div&gt;
+          &lt;!-- creative end --&gt;
+      h4 Text & Photo Creative
+      pre
+        code(data-language="html").
+          &lt;!-- creative start --&gt;
+          &lt;div class=&quot;cl-wr&quot;&gt;
+             &lt;div class=&quot;cl-ab&quot;&gt;&lt;a href=&quot;/&quot; target=&quot;_blank&quot;&gt;Recommended by&lt;/a&gt;&lt;/div&gt;
+             &lt;ul class=&quot;cl-awi cl-bl&quot;&gt;
+                &lt;li class=&quot;h&quot;&gt;
+                   &lt;a href=&quot;http://article.url.goes.here&quot; target=&quot;_blank&quot;&gt;
+                      &lt;div style=&quot;background-image: url(http://article.image.url.goes.here)&quot; class=&quot;cl-i&quot;&gt;&lt;/div&gt;
+                      &lt;h4 class=&quot;cl-t&quot;&gt;Article Title Goes Here&lt;/h4&gt;
+                      &lt;p class=&quot;cl-s&quot;&gt;Article Source Goes Here&lt;/p&gt;
+                   &lt;/a&gt;
+                &lt;/li&gt;
+                &lt;!-- more article item goes here --&gt;
+             &lt;/ul&gt;
+          &lt;/div&gt;
+          &lt;!-- creative end --&gt;
+      h5 Classes Definition
+      ul
+        li
+          p
+            code cl-wr
+            | : outmost wrapper for creative
+        li
+          p
+            code cl-ab
+            | : ClickLion About element, holding the ClickLion homepage link
+        li
+          p
+            code cl-awoi
+            | : list of articles (without image) - use in 
+            code Text Creative
+            |  only
+        li
+          p
+            code cl-awi
+            | : list of articles (with image) - use in 
+            code Text & Photo Creative
+            |  only
+        li
+          p
+            code cl-bl
+            em  (optional)
+            | : show bullets before each creative's article items
+        li
+          p
+            code cl-gr-n
+            em  (optional)
+            | : divide creative's article items into n columns
+        li
+          p
+            code cl-i
+            | : article image class
+        li
+          p
+            code cl-t
+            | : article title class
+        li
+          p
+            code cl-s
+            | : article source class
+      p Based on classes definition above, you can write your own CSS and override default creative styles by adding your CSS to 
+        code Additional CSS
+        |  field in 
+        code Edit creative
+        |  page.
+      p Happy customizing!
+
+  section#understand-your-creatives
+    h1.title Understand your creatives
+    .body
+      p
+        code Creative
+        |  is one of the most important things to publishers. In this document, we will cover a few key points you need to understand about 
+        code Creative
+        | :
+
+      ul
+        li
+          p A creative works 
+            strong only
+            |  in its domain. There is no way for you to share creatives between domains.
+        li
+          p Considering the term 
+            strong domain
+            | , a domain and its subdomains are recognized as separated domains. For example: 
+            code example.com
+            |  and 
+            code us.example.com
+            |  are considered two different domains by ClickLion.
+        li
+          p A creative might show nothing due to the following errors:
+            ul
+              li
+                p The creative is not running on its assigned domain
+              li
+                p Its domain has not been approved by ClickLion staffs or has been banned
+              li
+                p The reader activity violates our 
+                  a(href="#{doc}/policies.html") policies
+        li
+          p A creative might show irrelevant articles because we have not finished analyzing your websites. The problem should be fixed as long as we do, but if any issue still persists after 48 hours from the time you implemented recommendation code, please 
+            a(href="#{clicklion}/contact" target="_blank") contact us
+            |  for further supports.
+
+  section#responsive-creative-workaround
+    h1.title Responsive creative workaround
+    .body

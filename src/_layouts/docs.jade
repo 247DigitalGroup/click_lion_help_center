@@ -1,0 +1,135 @@
+block var
+- clicklion = 'http://prototype.clicklion.com'
+- doc = ''
+
+doctype
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0')
+    meta(name='apple-mobile-web-app-capable', content='yes')
+    meta(name='apple-mobile-web-app-status-bar-style', content='black')
+    - title = title || 'Home'
+    title #{title} - ClickLion Docs
+    link(rel="shortcut icon", href=_a('/img/favicon.png'), type="image/png")
+    link(rel="icon", href=_a('/img/favicon.png'), type="image/png")
+    if debug
+      - each href in _c('app.css')
+        link(rel="stylesheet", href=_a(href))
+    else
+      link(rel="stylesheet", href=_a('/bin/app.css'))
+    link(rel="stylesheet", href=_a('/css/layouts/docs.css'))
+    link(rel="stylesheet", href=_a(bower + '/rainbow/themes/obsidian.css'))
+    if css
+      - each href in css
+        link(rel="stylesheet", href=_a(href))
+    block css
+
+  body
+
+    .h
+      .meta-index= index
+      .meta-title= title
+      .meta-url= doc + url
+      .meta-description= description
+    
+    .docs.remodal-bg
+      .fixed-menu.hfso
+        .doc-index
+          include ../_data/docs
+          a(href="#").close
+            span.fa.fa-close
+          ul.pages
+            - for p in menu
+              - pageClass = ''
+              - if (doc + url == p.url) pageClass = 'a'
+              li(class=pageClass)
+                a(href="#{p.url}")= p.title
+                ul.sections
+                  if p.sections.length > 0
+                    - for s in p.sections
+                      li
+                        a(href="#{p.url}##{s.id}")= s.title
+                        ul.articles
+                          if s.articles.length > 0
+                            - for a in s.articles
+                              li
+                                a(href="#{p.url}##{a.id}")= a.title
+      .wrapper
+        .header
+          .title-bar
+            .ctn.sm-ph-15.md-ph-20.lg-ph-30
+              .rw
+                .cl.sm-1.sfso
+                  a(href="#").menu
+                    span.fa.fa-bars
+                .cl.sm-11.md-12
+                  h2.title.fadeInDown.animated= title
+                  h5.description.fadeIn.animated= description
+          //- .guide-bar
+            .ctn.sm-ph-15.md-ph-20.lg-ph-30
+              .rw
+                .cl.md-9
+                  p Check out our 
+                    a(href="/docs/guide.html") Guide
+                    | , which covers all the basics of setting up.
+                .cl.md-3
+                  input(type="search", placeholder="Search").ra
+        .content
+          .fixed-bar
+            .ctn.sm-ph-15.md-ph-20.lg-ph-30
+              .rw
+                .cl
+                  ul.nav
+                    li.sfso
+                      a(href="#").menu
+                        span.fa.fa-bars
+                    li.hfso
+                      a(href="/").home
+                        span.fa.fa-home
+                    li.hfso
+                      a(href=doc).doc
+                        span.fa.fa-book
+                    li
+                      a.title= title
+          .ctn.sm-ph-15.md-ph-20.lg-ph-30
+            .rw
+              .cl
+                .doc-body.document
+                  block content
+        .footer
+          //- .subscribe
+            .ctn.sm-ph-15.md-ph-20.lg-ph-30
+              .rw
+                .cl.md-7.lg-8.sm-mb-20.md-mb-0
+                  h5 Stay in the loop
+                  p Sign up to receive emails for the latest updates, features, and news on ClickLion system.
+                .cl.md-5.lg-4.md-mt-15
+                  form
+                    .rw.sp-5
+                      .cl.sm-7.md-8
+                        input(type="email", placeholder="your@email.com").m-0
+                      .cl.sm-5.md-4
+                        button.bt.a.ra.ex.m-0 Subscribe
+          include ../_elements/footer
+
+    block modals
+    include ../_modals/bug-report
+
+    if debug
+      script(type="text/javascript", src=_a(bower + '/jquery/dist/jquery.js'))
+      script(type="text/javascript", src=_a(bower + '/fastclick/lib/fastclick.js'))
+      script(type="text/javascript", src=_a(bower + '/rainbow/js/rainbow.min.js'))
+      script(type="text/javascript", src=_a(bower + '/rainbow/js/language/html.js'))
+      script(type="text/javascript", src=_a(bower + '/remodal/dist/remodal.min.js'))
+      if js
+        - each src in js
+          script(type="text/javascript", src=_a(src))
+      script(type="text/javascript", src=_a('/js/app.js'))
+      script(type="text/javascript", src=_a('/js/docs.js'))
+    else
+      if js
+        - each src in js
+          script(type="text/javascript", src=_a(src))
+      script(type="text/javascript", src=_a('/bin/app.js'))
+    block js

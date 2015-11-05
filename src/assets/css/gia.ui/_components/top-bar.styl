@@ -1,0 +1,98 @@
+if include-top-bar
+  
+  .{top-bar-fixed-class}
+    padding-bottom top-bar-height
+    > nav.{top-bar-class}
+      width 100%
+      position fixed
+      z-index top-bar-fixed-z-index
+  nav.{top-bar-class}
+    block-clear()
+    background-color top-bar-default-background-color
+    margin-bottom top-bar-margin-bottom
+    border-bottom top-bar-border-bottom
+    
+    &.{top-bar-dark-class},
+    &.{top-bar-light-class}
+      padding-left top-bar-link-padding-left * 2
+      padding-right top-bar-link-padding-right * 2
+      
+    &.{top-bar-dark-class}
+      background-color top-bar-dark-background-color
+      .{top-bar-title-brand-class}
+        color white
+      a
+        color iron
+        &:hover
+          color smoke
+    
+    ul.{top-bar-title-area-class},
+    section.{top-bar-content-area-class} > ul
+      margin 0
+      padding 0
+      list-style none
+      > li
+        display inline-block
+        &:not(:first-child)
+          padding-left top-bar-link-padding-left
+        &:not(:last-child)
+          padding-right top-bar-link-padding-right
+        > a
+          display block
+          line-height top-bar-height
+    
+    ul.{top-bar-title-area-class}
+      float left
+      h1, h2, h3, h4, h5, h6
+        &.{top-bar-title-brand-class}
+          margin 0
+          line-height top-bar-height
+      
+    section.{top-bar-content-area-class}
+      position relative
+      left 0
+      right 0
+      @media small-only
+        display none
+      &:not(:first-child)
+        > ul.l
+          padding-left top-bar-link-padding-left * 2
+
+  label.osm
+    display block
+    line-height 48px
+    width 48px
+    height 48px
+    text-align center
+    padding 0
+    background-color info-color
+    color white
+    &.mi
+      position relative
+      &:before
+        content ''
+        position absolute
+        left 50%
+        top 50%
+        width 1em
+        height 0.15em
+        margin-left (- @width / 2)
+        margin-top (- @height * 2.5)
+        background white
+        box-shadow: 0 0.25em 0 0 white, 0 0.5em 0 0 white
+        
+    // h2
+    //   line-height 48px
+    //   margin 0
+    // ul.nav
+    //   margin 0
+    //   padding 0
+    //   list-style none
+    //   > li
+    //     display inline-block
+    //     &:not(:last-child)
+    //       margin-right 20px
+    //     > a
+    //       display block
+    //       color steel
+    //       line-height 48px

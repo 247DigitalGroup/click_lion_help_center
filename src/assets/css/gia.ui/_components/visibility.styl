@@ -1,0 +1,28 @@
+if include-visibility
+
+	@media small-only
+		.{visibility-hide-for-small-only-class}
+			display none !important
+		.{visibility-show-for-medium-only-class},
+		.{visibility-show-for-large-only-class}
+			display none !important
+	@media medium-only
+		.{visibility-hide-for-medium-only-class}
+			display none !important
+		.{visibility-show-for-small-only-class},
+		.{visibility-show-for-large-only-class}
+			display none !important
+	@media small
+		.{visibility-hide-for-small-class}
+			display none !important
+	@media medium
+		.{visibility-hide-for-medium-class}
+			display none !important
+	@media large
+		.{visibility-hide-for-large-class}
+			display none !important
+		.{visibility-hide-for-large-only-class}
+			display none !important
+		.{visibility-show-for-small-only-class},
+		.{visibility-show-for-medium-only-class}
+			display none !important

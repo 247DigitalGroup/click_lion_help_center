@@ -1,0 +1,95 @@
+if include-grids
+  
+  grid-calc(i = 1, n = total-columns)
+    100% * (i / n)
+  
+  create-grid-gutter(gutter = default-gutter)
+    margin-left rem-calc(- gutter / 2)
+    margin-right @margin-left
+    create-grid-column(gutter)
+  
+  create-grid-column(gutter = default-gutter)
+    > .{grid-column-class}
+      padding-left rem-calc(gutter / 2)
+      padding-right @padding-left
+  
+  create-grid-spaces(prefix = null)
+    unless prefix is null
+      prefix += gap
+    for i in space-sizes
+      &.{prefix}{space-prefix}{gap}{i}
+        create-grid-gutter(i)
+  
+  create-grid-columns(prefix = grid-column-class)
+    for i in (1 .. total-columns)
+      &.{prefix}{gap}{i}
+        width grid-calc(i, total-columns)
+        
+  create-grid-offsets(prefix = null)
+    unless prefix is null
+      prefix += gap
+    for i in (1 .. total-columns - 1)
+      &.{prefix}{offset-prefix}{gap}{i}
+        margin-left grid-calc(i, total-columns)
+        
+  create-grid-percentage-columns(prefix = null)
+    for i in (1 .. total-columns)
+      for j in (1 .. i)
+        if (j != i)
+          &.{prefix}{gap}{j}{gap}{i}
+            width grid-calc(j, i)
+        
+  create-grid-centered-column(prefix = null)
+    unless prefix is null
+      prefix += gap
+    &.{prefix}{grid-centered-class}
+      float none
+      margin-left auto
+      margin-right @margin-left
+    &.{prefix}{grid-uncentered-class}
+      &:last-child
+        float default-float
+        &:not(:first-child):not(.end)
+          float last-child-float
+      &:not(:last-child)
+        float default-float
+
+  .ctn
+    max-width container-width
+    margin 0 auto
+    
+  .{grid-row-class}
+    width auto
+    block-clear()
+    create-grid-gutter()
+    create-grid-spaces()
+    create-grid-column()
+    @media small
+      create-grid-spaces(small-prefix)
+    @media medium
+      create-grid-spaces(medium-prefix)
+    @media large
+      create-grid-spaces(large-prefix)
+    > .{grid-column-class}
+      width 100%
+      float default-float
+      create-grid-offsets()
+      create-grid-centered-column()
+      @media small
+        create-grid-columns(small-prefix)
+        create-grid-offsets(small-prefix)
+        create-grid-percentage-columns(small-prefix)
+        create-grid-centered-column(small-prefix)
+      @media medium
+        create-grid-columns(medium-prefix)
+        create-grid-offsets(medium-prefix)
+        create-grid-percentage-columns(medium-prefix)
+        create-grid-centered-column(medium-prefix)
+      @media large
+        create-grid-columns(large-prefix)
+        create-grid-offsets(large-prefix)
+        create-grid-percentage-columns(large-prefix)
+        create-grid-centered-column(large-prefix)
+      &:last-child
+        &:not(:first-child):not(.end)
+          float last-child-float

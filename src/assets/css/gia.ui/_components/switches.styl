@@ -1,0 +1,79 @@
+if include-switches
+  
+  .{switch-class}
+    user-select none
+    display inline-block
+    > input[type=checkbox]
+      display none
+      &:checked
+        ~ label
+          background-color: switches-default-color['background']
+          border-color @background-color
+          &:after
+            left 50%
+      &:not(:checked)
+        ~ label
+          background-color secondary-color
+          border-color @background-color
+          &:after
+            left 0
+    > label
+      display block
+      height: switches-default-size['handler']
+      width @height * 2
+      background-color: switches-default-color['background']
+      border-width: switches-default-size['border']
+      border-style solid
+      border-color @background-color
+      position relative
+      box-sizing content-box
+      switches-transition()
+      if switches-default-radius > 0
+        border-radius switches-default-radius
+      &:after
+        switches-handler-transition()
+        content ''
+        position absolute
+        background-color: switches-default-color['handler']
+        width: switches-default-size['handler']
+        height @width
+        top 0
+        if switches-handler-shadow
+          box-shadow switches-handler-shadow
+        if switches-default-radius > 0
+          border-radius switches-default-radius
+          
+    &.{radius-class}
+      > label
+        border-radius switches-radius
+        &:after
+          border-radius switches-radius
+    &.{round-class}
+      > label
+        border-radius switches-round
+        &:after
+          border-radius switches-round
+          
+    sizing(size-class, size)
+      &.{size-class}
+        > label
+          height: size['handler']
+          width @height * 2
+          border-width: size['border']
+          &:after
+            width: size['handler']
+            height @width
+    
+    for size-class, size in switches-sizes
+      sizing(size-class, size)
+      
+    coloring(color-class, color)
+      &.{color-class}
+        > input[type=checkbox]:checked ~ label
+          background-color: color['background']
+          border-color @background-color
+          &:after
+            background-color color['handler']
+    
+    for color-class, color in switches-colors
+      coloring(color-class, color)

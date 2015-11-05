@@ -1,0 +1,125 @@
+if include-content-slider
+		
+	.cs
+		perspective 1300px
+		display inline-block
+		text-align left
+		position relative
+		width 100%
+		overflow hidden
+		margin-bottom content-slider-dot-distance + content-slider-dot-distance-top + 2 * content-slider-dot-outer-size
+		&.bd
+			border content-slider-border-size solid content-slider-back-color
+		&.ra
+			border-radius content-slider-border-radius
+		&.rd
+			border-radius round
+		> input
+			display none
+			for i in (content-slider-max-slides .. 1)
+				&:nth-of-type({i}):checked ~ ul li:first-of-type
+					margin-left: -100% * (i - 1)
+		> ul
+			position relative
+			width 100%
+			height: content-slider-inner-height
+			z-index 1
+			font-size 0
+			line-height 0
+			background-color content-slider-back-color
+			margin 0 auto
+			padding 0
+			overflow hidden
+			white-space nowrap
+			> li
+				position relative
+				display inline-block
+				width 100%
+				height 100%
+				overflow hidden
+				font-size initial
+				line-height normal
+				vertical-align top
+				white-space normal
+				if content-slider-transition is true
+					transition all content-slider-speed content-slider-easing
+				> div.bi
+					width 100%
+					height 100%
+		> div.nav
+			position absolute
+			bottom: 2 * content-slider-dot-outer-size
+			left 50%
+			z-index 2
+			margin-bottom content-slider-dot-distance-top
+			font-size 0
+			line-height 0
+			text-align center
+			user-select none
+			> div
+				margin-left -100%
+				label
+					position relative
+					display inline-block
+					cursor pointer
+					border-radius 50%
+					margin: 0 content-slider-dot-distance
+					padding content-slider-dot-outer-size
+					background-color content-slider-dot-back-color
+					&:hover
+						&:after
+							opacity 1
+					&:after
+						content ''
+						position absolute
+						left 50%
+						top 50%
+						margin-left: - content-slider-dot-inner-size
+						margin-top: - content-slider-dot-inner-size
+						background-color content-slider-dot-main-color
+						border-radius 50%
+						padding content-slider-dot-inner-size
+						opacity 0
+		> div.arr
+			user-select none
+			position absolute
+			left content-slider-arrow-distance
+			right @left
+			top 50%
+			height content-slider-arrow-height
+			box-sizing content-box
+			z-index 3
+			label
+				display none
+				position absolute
+				top -50%
+				cursor pointer
+				width content-slider-arrow-width
+				line-height content-slider-arrow-height
+				height content-slider-arrow-height
+				background-color white
+				text-align center
+				
+		left-arrows = ()
+		for i in (1 .. content-slider-max-slides + 1)
+			push(left-arrows, '> input:nth-of-type(' + i + '):checked ~ div.arr > label:nth-of-type(' + (i - 1) + ')')
+		&.inf > input:first-of-type:checked ~ div.arr > label.go-l,
+		{join(', ', left-arrows)}
+			display block
+			left 0
+			right auto
+			
+		right-arrows = ()
+		for i in (1 .. content-slider-max-slides + 1)
+			push(right-arrows, '> input:nth-of-type(' + i + '):checked ~ div.arr > label:nth-of-type(' + (i + 1) + ')')
+		&.inf > input:last-of-type:checked ~ div.arr > label.go-f,
+		{join(', ', right-arrows)}
+			display block
+			left auto
+			right 0
+		
+		selectors = ()
+		for i in (1 .. content-slider-max-slides + 1)
+			push(selectors, '> input:nth-of-type(' + i + '):checked ~ div.nav label:nth-of-type(' + i + '):after')
+		{join(', ', selectors)}
+			opacity 1

@@ -1,0 +1,52 @@
+extends _layouts/docs
+
+block var
+  - index = 0
+  - title = 'Help Center'
+  - description = title
+  - url = '/index.html'
+
+block content
+  .rw.sp-0
+    .cl.sm-9.sm-ct.md-12
+      ul.bg.sm-1.md-2.lg-4.threads.tc
+        li
+          a(href="#{doc}/getting-started.html")
+            img(src=_a('/img/getting-started.png'))
+            h2 Getting Started
+            p Cover the basics in order to provide you with a successful start in ClickLion.
+        li
+          a(href="#{doc}/account-management.html")
+            img(src=_a('/img/account-management.png'))
+            h2 Account Management
+            p All about your account, wallet security and management in ClickLion.
+        li
+          a(href="#{doc}/campaign-and-article-management.html")
+            img(src=_a('/img/campaign-and-article-management.png'))
+            h2 Campaign and Article Management
+            p Advertiser working place.
+        li
+          a(href="#{doc}/domain-and-creative-management.html")
+            img(src=_a('/img/domain-and-creative-management.png'))
+            h2 Domain and Creative Management
+            p Publisher working place.
+        li
+          a(href="#{doc}/payments.html")
+            img(src=_a('/img/payments.png'))
+            h2 Payments
+            p Simple process to make it easy for users to receive money from ClickLion.
+        li
+          a(href="#{doc}/report.html")
+            img(src=_a('/img/report.png'))
+            h2 Report
+            p Performance insight for advertisers/publishers to improve their performance in the future.
+        li
+          a(href="#{doc}/policies.html")
+            img(src=_a('/img/policies.png'))
+            h2 Policies
+            p How to become a better advertiser/publisher?
+        li
+          a(href="#{doc}/glossary.html")
+            img(src=_a('/img/glossary.png'))
+            h2 Glossary
+            p Not sure about some definitions? Learn more here.

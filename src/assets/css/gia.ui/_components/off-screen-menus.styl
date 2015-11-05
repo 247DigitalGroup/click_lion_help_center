@@ -1,0 +1,44 @@
+if include-off-screen-menu
+    
+  div.{off-screen-menu-class}
+    background off-screen-menu-background
+    width off-screen-menu-width
+    position absolute
+    top 0
+    right 0
+    left: - off-screen-menu-width
+    z-index 0
+    if off-screen-menu-transition
+      transition transform off-screen-menu-transition-duration off-screen-menu-transition-easing
+    &.{off-screen-menu-fixed-class}
+      position fixed
+      bottom 0
+      overflow-y scroll
+      overflow-scrolling touch
+    if true
+      > ul.{vertical-menu-class}
+        background none
+        > li
+          &.{vertical-menu-divider-class}
+            > h4
+              color aluminum
+          > a
+            color smoke
+
+  div.{off-screen-menu-content-class}
+    background-color white
+    position relative
+    top 0
+    bottom 100%
+    transform none
+    z-index 1
+    if off-screen-menu-transition
+      transition transform off-screen-menu-transition-duration off-screen-menu-transition-easing
+
+  input[type=checkbox].{off-screen-menu-class}
+    position absolute
+    clip rect(0, 0, 0, 0)
+    &:checked
+      & ~ div.{off-screen-menu-class},
+      & ~ div.{off-screen-menu-content-class}
+        transform translate3d(off-screen-menu-width, 0, 0)

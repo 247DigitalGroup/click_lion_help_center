@@ -1,0 +1,42 @@
+if include-progress-bars
+  .{progress-bar-class}
+    position relative
+    background-color progress-bar-background-color
+    height progress-bar-medium-height
+    overflow hidden
+    margin-bottom progress-bar-margin-bottom
+    
+    // inside meter
+    > .{progress-bar-meter-class}
+      position relative
+      left 0
+      top 0
+      background-color progress-bar-default-color
+      height 100%
+    
+    sizing(size, height)
+      &.{size}
+        height height
+    
+    for size, height in progress-bar-heights
+      sizing(size, height)
+      
+    coloring(color-class, color)
+      &.{color-class}
+        > .{progress-bar-meter-class}
+          background-color color
+    
+    for color-class, color in progress-bar-colors
+      coloring(color-class, color)
+    
+    // radius and round
+    if progress-bar-default-radius > 0
+      border-radius progress-bar-default-radius
+    &.{radius-class}
+      border-radius progress-bar-radius
+      > .{progress-bar-meter-class}
+        border-radius progress-bar-radius
+    &.{round-class}
+      border-radius progress-bar-round
+      > .{progress-bar-meter-class}
+        border-radius progress-bar-round
