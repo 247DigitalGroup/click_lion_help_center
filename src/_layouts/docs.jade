@@ -34,7 +34,8 @@ html
       .meta-description= description
     
     .docs.remodal-bg
-      .fixed-menu.hfso
+      
+      .fixed-menu.hfso.hwp
         .doc-index
           include ../_data/docs
           a(href="#").close
@@ -56,7 +57,7 @@ html
                               li
                                 a(href="#{p.url}##{a.id}")= a.title
       .wrapper
-        .header
+        .header.hwp
           .title-bar
             .ctn.sm-ph-15.md-ph-20.lg-ph-30
               .rw
@@ -65,7 +66,8 @@ html
                     span.fa.fa-bars
                 .cl.sm-11.md-12
                   h2.title.fadeInDown.animated= title
-                  h5.description.fadeIn.animated= description
+                  if description != null
+                    h5.description.fadeIn.animated= description
           //- .guide-bar
             .ctn.sm-ph-15.md-ph-20.lg-ph-30
               .rw
@@ -76,7 +78,7 @@ html
                 .cl.md-3
                   input(type="search", placeholder="Search").ra
         .content
-          .fixed-bar
+          .fixed-bar.hwp
             .ctn.sm-ph-15.md-ph-20.lg-ph-30
               .rw
                 .cl
@@ -97,7 +99,7 @@ html
               .cl
                 .doc-body.document
                   block content
-        .footer
+        .footer.hwp
           //- .subscribe
             .ctn.sm-ph-15.md-ph-20.lg-ph-30
               .rw

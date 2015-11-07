@@ -75,9 +75,41 @@ ClickLion['docs'] =
           unlockBody()
           e.preventDefault()
 
+    initEditor = () ->
+      $ '.document'
+        .on 'click', 'p, h1.title, h2.title', (e) ->
+          $ @
+            .attr 'data-text', $(@).text()
+            .prop 'contenteditable', true
+            .unbind 'focusout'
+            .focusout (e) ->
+                newText = $(@).text()
+                oldText = $(@).attr 'data-text'
+                if newText != oldText
+                  json =
+                    oldText: oldText
+                    newText: newText
+                    element: $(@).get(0).tagName
+                    section: $(@).parents('section[id]').attr 'id'
+                    article: $(@).parents('article[id]').attr 'id'
+                    url: $('.meta-url').text()
+                  push json
+                  $(@).css
+                    backgroundColor: 'yellow'
+                return
+            .focus()
+
+    push = (json) ->
+      $.ajax
+        method: 'POST'
+        url: 'http://54.169.214.119:3000/changes'
+        dataType: 'json'
+        data: json
+
     initFixedMenu()
     initAnchorLinks()
     initScrollSpy()
+    initEditor()
 
 if $?
   $ document

@@ -5,6 +5,10 @@
 body
   &.locked
     overflow hidden
+    
+.hwp
+  @media print
+    display none
 
 .docs
   
@@ -77,6 +81,10 @@ body
       background-color active-color
     
   .wrapper
+    @media print
+      width 100%
+      position initial
+      overflow visible
     background-color darken(white, 1)
     width 75%
     position fixed
