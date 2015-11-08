@@ -12,8 +12,8 @@ block content
     h1.title Advertiser Interface
     .body
       
-      article#access-advertiser-interface
-        h2.title Access advertiser interface
+      article#access-the-advertiser-interface
+        h2.title Access the advertiser interface
         .body
           p
             code Advertiser section
@@ -28,7 +28,7 @@ block content
             li
               p Click 
                 code Advertiser
-                |  section on top navigation.
+                |  on top navigation bar.
       
       article#advertiser-interface
         h2.title Advertiser Interface
@@ -42,7 +42,7 @@ block content
           h3 Your campaigns
           p When you access 
             code Campaigns
-            |  section, you will see a table listing your campaigns. The table contains many information of the campaigns so you can easily see and compare them. Those information are name, status, total budget, daily budget, impression, page view, click, CTR, start date and end date.
+            |  section, you will see a table listing all your campaigns along with the campaign's information. Those information are: status, total budget, daily budget, impression, page view, click, CTR, start date, and end date.
           blockquote.note
             p Click the small icon 
               img(src="https://camo.githubusercontent.com/29e3455ba1b02bd8f28af873022c674a075643eb/687474703a2f2f7075752e73682f6b42786a442f643539633336393338652e706e67")
@@ -55,10 +55,10 @@ block content
           p Please go 
             a(href="#{clicklion}/campaigns/new" target="_blank") here
             |  to learn how to create a campaign.
-          img(src="https://camo.githubusercontent.com/0490e63e32213ea393417f12142fe5702df538cb/687474703a2f2f7075752e73682f6b427872652f363439626364346165322e706e67")
+          img(src=_a('/img/figures/create-new-campaign.png'))
 
-  section#how-to-setup-a-campaign-to-get-high-valuable-visitors
-    h1.title How to setup a campaign to get high valuable visitors?
+  section#how-to-setup-a-campaign-to-get-valuable-visitors
+    h1.title  How to setup a campaign to get valuable visitors?
     .body
       p To setup a campaign, please follow these steps:
       ol
@@ -71,42 +71,42 @@ block content
             code Advertiser
             |  section on top navigation, click 
             img(src="https://camo.githubusercontent.com/e29b7dca2b63e8373f7c1eabe0bb71176cec9a08/687474703a2f2f7075752e73682f6b774244512f636638663530316535362e706e67")
-            |  to open campaign form.
+            |  to open the campaign form.
         li
           p Fill in the following fields and submit the form:
           ul
             li
               p
                 strong Name
-                | : Name of your campaign to distinguish from other ones. This field does not affect campaign performance.
+                | : Name your campaign. This field does not affect campaign performance.
             li
               p
-                strong Budget spending
+                strong Budget Spending
                 | : This is how ClickLion uses your campaign budget to attract visitors. There are two options 
                 code fast
                 |  and 
                 code evenly
                 | . With 
                 code fast
-                |  option, ClickLion will try to attract visitors as fast as it can, your campaign will end as soon as your budget run out. With 
+                |  option, ClickLion will try to spend your budget in the quickest possible time. With 
                 code evenly
                 | , you are required to fill in 
                 code Duration
-                |  that your campaign should be run in, the budget will be split equally across its 
-                code Duration
-                |  to make sure there are visitors attracted every day within the campaign.
+                |  of your campaign, the budget will be split the across the 
+                code Duration 
+                |  of the campaign.
             li
               p
                 strong Start Date
-                | : This is the date on which the campaign should start running. This date must be later than tomorrow. For example, if today is Jan 20th, 2015 (UTC +0), 
+                | : This is the date on which the campaign should start running. The start date have to be two days current of the current date; for example, if today is Jan 20th, 2015 (UTC +0), a 
                 code Start Date
-                |  earlier than Jan 22th, 2015 (UTC +0) will not be allowed. The one day timeframe, occasionally a little bit longer, is reserved for ClickLion to collect, prepare and carefully review your campaign and its articles.
+                |  earlier than Jan 22nd, 2015 (UTC +0) will not be allowed. The two day timeframe, is reserved for ClickLion to collect, prepare and carefully review your campaign and its articles. In some special cases, your campaign will take longer to start.
             li
               p
                 strong Duration
                 | : This field is required only when you choose the option 
                 code evenly
-                |  for Budget spending.
+                |  for Budget Spending.
             li
               p
                 strong Total Budget
@@ -114,37 +114,39 @@ block content
             li
               p
                 strong Maximum CPC
-                | : The maximum amount of money you want to spend on a click. The more you are willing to spend, the more valuable visitors get impressions on your campaign.
+                | : The maximum amount of money you want to spend per click. The more you are willing to spend, the higher the quality of visitors you can receive.
             li
               p
-                strong Which way do you prefer to collect your articles
-                | : This is how ClickLion collects your articles. There are two options 
-                code auto
+                strong How do you want us to collect your articles?
+                | There are two options 
+                code automatic
                 |  and 
                 code manual
-                | . With 
-                code auto
+                | . With the 
+                code automatic
                 |  option, ClickLion will automatically go to your website to collect every articles in your website (
                 a(href="#markup-guidelines-and-recommendations") Learn more on this
                 | ). With 
                 code manual
-                |  option, you will need to create an article via our (Create Article) interface. 
-                code auto
-                |  option is recommended because it saves you a lot of time creating article for you and allows ClickLion to have more contents from your website. The more content ClickLion has, the better visitors it can find for your campaign.
+                |  option, you will need to add article to your campaign via our Manage Manual Campaign interface. The 
+                code automatic
+                |  option is recommended because it saves you a lot of time, and allows ClickLion to automatically update your campaign if you have new articles or made changes to an existing one.
             li
               p
                 strong Domain
-                | : Domain of your campaign. This domain URL must include protocol (http, https). For example: 
+                | : Domain of your website for this campaign. The domain URL must include protocol (http, https). For example: 
                 code http://clicklion.com
                 |  is a valid domain while 
                 code clicklion.com
                 |  is invalid.
         li
-          p If your campaign is successfully created, a campaign page will show up. In case you see error messages, please correct invalid fields and resubmit the form.
+          p If your campaign is successfully created, our system will redirect you the campaign's page. If you see an error messages, please follow the instructions and resubmit your form.
         li
-          p After creating the campaign, the form status will be 
+          p Upon creation the campaign status will be 
             code unpaid
-            | . You need purchase the campaign but before purchasing, you should make sure that your articles are available.
+            | . You need pay for that campaign before it can become 
+            code active
+            | .
           ul
             li
               p If you choose automatic articles collection, ClickLion might need to some time (up to 24 hours) to finish collecting the articles and send you a notification email. After you received that email, please review the articles and 
@@ -154,7 +156,7 @@ block content
                 |  for supports.
             li
               p If you choose your campaign to be manual, you should start 
-                a(href="#") creating your articles
+                a(href="#") adding articles to your campaign
                 | . After that please 
                 a(href="#paying-for-your-campaign") purchase the campaign
                 | .
@@ -162,12 +164,12 @@ block content
             p There is a warning about the purchase due date such as 
               code Please purchase your campaign before 06-10-2015
               | . If you are not able to purchase the campaign on time, you will have to 
-              a(href="#reconfigure-campaigns") reconfigure the campaign
+              a(href="#reconfiguring-your-campaigns") reconfigure the campaign
               |  before purchasing it.
         li
           p The campaign will be reviewed by ClickLion staffs. If it is 
             code approved
-            | , the campaign will be active by the campaign 
+            | , the campaign will be active by on the  
             code Start Date
             | . In case the campaign is 
             code disapproved
@@ -177,7 +179,7 @@ block content
             code Wallet
             | . 
             a(href="#{doc}/account-management.html#your-wallet") Learn more
-            |  about 
+            |  about your 
             code Wallet
             | .
 
@@ -191,14 +193,14 @@ block content
             a(href="#{clicklion}/users/sign_in" target="_blank") Sign in
             |  to your ClickLion account
         li
-          p In 
+          p In the
             code Advertiser section
-            | , choose a campaign you want to pay from campaign table.
+            | , choose a campaign you want to purchase from campaign table.
           blockquote.note
-            p An unpaid campaign witll have be shown like so 
+            p An unpaid campaign will have a status like so 
               img(src=_a('/img/figures/unpaid.png'))
         li
-          p In campaign page, click 
+          p In campaign page, click the 
             code Pay
             |  button to proceed.
           blockquote.note
@@ -206,8 +208,8 @@ block content
               a(href="#{doc}/account-management.html#add-funds-to-your-wallet") add money into your balance
               | .
 
-  section#reconfigure-campaigns
-    h1.title Reconfigure campaigns
+  section#reconfiguring-your-campaigns
+    h1.title Reconfiguring your campaigns
     .body
       p To reconfigure your campaign, please follow these steps:
       ol
@@ -218,34 +220,34 @@ block content
         li
           p Click 
             code Advertiser
-            |  on top navigation, you will see a table of your campaigns.
+            |  on top navigation bar, you will see a table of your campaigns.
         li
-          p Select the campaign in the campaign table which you want to reconfigure. A campaign can be reconfigured only if it is 
+          p Select which campaign you want to reconfigure. A campaign can be reconfigured when it is 
             code unpaid
             | .
           blockquote.note
-            p An unpaid campaign witll have be shown like so 
+            p An unpaid campaign will have a status like so 
               img(src=_a('/img/figures/unpaid.png'))
         li
-          p In campaign page, click 
+          p In campaign page, click the 
             code Config
             |  button to proceed.
           ul
             li
-              p In campaign's configuration page, you can change campaign properties, including name, budget, cpc, duration, starting day, payment method and articles collection method.
+              p In the campaign's configuration page, you can change the campaign's properties: name, budget, cpc, duration, starting date, ending date, payment method, and articles collection method.
             li
               p Remember to click 
                 code Save
-                |  to save the changes.
+                |  to confirm your changes.
           blockquote.note
-            p In case the start date is over, you have to update it to a future day in order to make your campaign able to run.
+            p Your campaign will not run if your start date is set in the past, you will have to edit the start date in order for that campaign to be active.
 
 
-  section#userstand-your-campaign
-    h1.title Understand your campaign
+  section#userstanding-your-campaign
+    h1.title Understanding your campaign
     
     .body
-      p Campaign is one of the most important concepts for advertisers. If you are an advertiser, you obviously want your campaigns to perform as efficiently as possible. You will care about your campaign status and what it means, how often your articles are updated and much more. In this document, we will cover everything related to campaign.
+      p Campaign management is one of the most important aspect for advertisers. If you are an advertiser, you obviously want your campaigns to perform as efficiently as possible. You will have to check your campaign's status and knows what it means, we will send an email whenever your campaign's status changes. In this section, we will try to cover everything related to campaigns, its a good idea to finish reading this section to have a clearer understanding.
 
       article#states
         h2.title States (Statuses)
