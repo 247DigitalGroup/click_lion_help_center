@@ -1,0 +1,27 @@
+{
+  "name": "normalize-strings",
+  "version": "1.0.4",
+  "description": "",
+  "main": "index.js",
+  "author": "Pablo Terradillos <tehsis@gmail.com>",
+  "contributors": [
+    "Cristian Douce"
+  ],
+  "scripts": {
+    "test": "node ./test/normalize.test.js"
+  },
+  "keywords": [
+    "utf-8",
+    "unicode",
+    "strings"
+  ],
+  "repository": { 
+    "type" : "git",
+    "url" : "https://github.com/tehsis/normalize"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "cheerio": "^0.18.0",
+    "superagent": "^0.21.0"
+  }
+}

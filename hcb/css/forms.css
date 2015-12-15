@@ -1,0 +1,103 @@
+::-webkit-input-placeholder {
+  color: #a8afb8;
+}
+:-moz-placeholder {
+  color: #a8afb8;
+}
+::-moz-placeholder {
+  color: #a8afb8;
+}
+:-ms-input-placeholder {
+  color: #a8afb8;
+}
+label {
+  font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  margin-bottom: 10px;
+  display: inline-block;
+  color: #4d4d4d;
+  font-weight: 500;
+}
+input[type=text]:not([class*=cke]),
+input[type=email]:not([class*=cke]),
+input[type=password]:not([class*=cke]),
+input[type=number]:not([class*=cke]),
+select:not([class*=cke]),
+textarea:not([class*=cke]) {
+  width: 100%;
+  font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  border: 1px solid #d9d9d9;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 2px 4px 0 rgba(0,0,0,0.03);
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.03);
+  padding: 5px 10px;
+  margin-bottom: 10px;
+  min-height: 30px;
+  max-width: 100%;
+}
+a.action {
+  border: 1px solid #b6bcc4;
+  -webkit-border-radius: 100px;
+  border-radius: 100px;
+  padding: 5px 8px;
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: inline-block;
+  margin: 1px 0;
+}
+a.action:hover.disapprove {
+  color: #fff;
+  background-color: #f44336;
+  border-color: #f33527;
+}
+a.action:hover.approve {
+  color: #fff;
+  background-color: #4caf50;
+  border-color: #47a44b;
+}
+a.button,
+button {
+  font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  padding: 10px 12px;
+  color: #fff;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+  -webkit-box-shadow: 0 2px 4px 0 rgba(0,0,0,0.03);
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.03);
+  margin-bottom: 15px;
+}
+a.button.success,
+button.success {
+  background-color: #4caf50;
+}
+a.button.success:hover,
+button.success:hover {
+  background-color: #3d8b40;
+}
+a.button.danger,
+button.danger {
+  background-color: #f44336;
+}
+a.button.danger:hover,
+button.danger:hover {
+  background-color: #ea1c0d;
+}
+a.button.cancel,
+button.cancel {
+  color: #000;
+  background-color: #e6e6e6;
+}
+a.button.cancel:hover,
+button.cancel:hover {
+  background-color: #d9d9d9;
+}
+select {
+  height: 30px;
+}
