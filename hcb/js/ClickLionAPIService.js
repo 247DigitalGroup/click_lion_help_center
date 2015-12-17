@@ -1,27 +1,5 @@
 (function() {
-  var Page, getset,
-    bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
-
-  getset = function(obj, attrs) {
-    var attr, i, len, results;
-    results = [];
-    for (i = 0, len = attrs.length; i < len; i++) {
-      attr = attrs[i];
-      results.push((function(attr) {
-        obj.prototype.__defineGetter__(attr, function() {
-          return this.get(attr);
-        });
-        return obj.prototype.__defineSetter__(attr, function(val) {
-          return this.set(attr, val);
-        });
-      })(attr));
-    }
-    return results;
-  };
-
-  Page = Parse.Object.extend('Page');
-
-  getset(Page, ['title', 'description', 'html', 'slug']);
+  var bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
   angular.module('HCB').factory('api', [
     '$http', '$q', 'Notification', 'configs', function($http, $q, Notification, configs) {
@@ -85,20 +63,42 @@
         };
 
         ClickLionAPI.prototype.createNewPage = function() {
-          return new Page();
+          return {
+            id: null,
+            title: '',
+            description: '',
+            html: ''
+          };
+        };
+
+        ClickLionAPI.prototype.savePage = function(page) {
+          var defer, req;
+          defer = $q.defer();
+          console.log(page);
+          req = this.newRequestObject({
+            method: 'POST',
+            url: this.api.root + this.api.pages + '/' + page.id,
+            data: page
+          });
+          $http(req).success(function(data) {
+            return defer.resolve(data);
+          }).error(function(e) {
+            return defer.reject(e);
+          });
+          return defer.promise;
         };
 
         ClickLionAPI.prototype.getPages = function() {
-          var defer, query;
+          var defer, req;
           defer = $q.defer();
-          query = new Parse.Query(Page);
-          query.find({
-            success: function(res) {
-              return defer.resolve(res);
-            },
-            error: function(e) {
-              return defer.reject(e);
-            }
+          req = this.newRequestObject({
+            method: 'GET',
+            url: this.api.root + this.api.pages
+          });
+          $http(req).success(function(res) {
+            return defer.resolve(res);
+          }).error(function(e) {
+            return defer.reject(e);
           });
           return defer.promise;
         };
@@ -129,16 +129,16 @@
         };
 
         ClickLionAPI.prototype.getPageById = function(id) {
-          var defer, query;
+          var defer, req;
           defer = $q.defer();
-          query = new Parse.Query(Page);
-          query.get(id, {
-            success: function(res) {
-              return defer.resolve(res);
-            },
-            error: function(e) {
-              return defer.reject(e);
-            }
+          req = this.newRequestObject({
+            method: 'GET',
+            url: this.api.root + this.api.pages + '/' + id
+          });
+          $http(req).success(function(data) {
+            return defer.resolve(data);
+          }).error(function(e) {
+            return defer.reject(e);
           });
           return defer.promise;
         };

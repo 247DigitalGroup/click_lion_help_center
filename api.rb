@@ -4,31 +4,71 @@ require 'fileutils'
 
 set bind: '0.0.0.0'
 
+def get_pages_string
+  current_directory = File.expand_path File.dirname(__FILE__)
+  pages_file = File.join(current_directory, 'pages.json')
+  File.read(pages_file)
+end
+
+before do
+  if request.env['HTTP_ORIGIN']
+    response.headers["Access-Control-Allow-Origin"] = request.env["HTTP_ORIGIN"]
+  end
+
+  response.headers["Access-Control-Allow-Credentials"] = "true"
+
+  response.headers["Access-Control-Allow-Headers"] = "accept, content-type"
+end
+
 get '/' do
   "Hello"
 end
 
 get '/pages' do
   content_type :json
+  get_pages_string
+end
 
+get '/pages/:id' do
+  p response.headers
+  id = params['id']
+  pages_strong = get_pages_string
+  pages = JSON.parse(pages_strong)
+  pages.each do |page|
+    halt(200, page.to_json) if page['id'] == id
+  end
+  content_type :json
+  halt(200, {}.to_json)
+end
+
+post '/pages/:id' do
+  id = params['id']
+  data = JSON.parse(request.body.read)
+  pages_strong = get_pages_string
+  pages = JSON.parse(pages_strong)
+  p data
+  index = pages.find_index do |page|
+    page['id'] == id
+  end
+  if index
+    pages[index] = data
+  else
+    pages << data
+  end
   current_directory = File.expand_path File.dirname(__FILE__)
-  search_pattern = File.join(current_directory, 'editable_www', '*.html')
-  pages_directory = File.join(current_directory, 'editable_www', '')
-  Hash[
-    Dir[search_pattern].map do |f_name|
-      [f_name.gsub(pages_directory, ''), File.read(f_name)]
-    end
-  ].to_json
+  pages_file = File.join(current_directory, 'pages.json')
+  File.write(pages_file, JSON.pretty_generate(pages))
+  content_type :json
+  { status: 'ok' }.to_json
 end
 
 options '/pages' do
-  response.headers["Access-Control-Allow-Origin"] = request.env["HTTP_ORIGIN"]
   response.headers["Access-Control-Allow-Methods"] = "POST"
-  response.headers["Access-Control-Allow-Credentials"] = "true"
+  halt 200
+end
 
-  p response.headers
-
-  response.headers["Access-Control-Allow-Headers"] = "accept, content-type"
+options '/pages/:id' do
+  response.headers["Access-Control-Allow-Methods"] = "POST"
   halt 200
 end
 
@@ -45,8 +85,5 @@ post '/pages' do
     File.write(f_path, content)
   end
   content_type :json
-  response.headers["Access-Control-Allow-Credentials"] = "true"
-  response.headers["Access-Control-Allow-Origin"] = request.env["HTTP_ORIGIN"]
-  response.headers["Access-Control-Allow-Headers"] = "accept, content-type"
   { status: 'ok' }.to_json
 end

@@ -41,7 +41,7 @@
           html = template.replace(/\{\{(?:slug|menu|title|description|content)\}\}/g, function(term) {
             switch (term) {
               case '{{slug}}':
-                return page.slug;
+                return page.id;
               case '{{menu}}':
                 return menu;
               case '{{title}}':
@@ -60,17 +60,17 @@
           ul = $('<ul class="pages"/>');
           for (j = 0, len = pages.length; j < len; j++) {
             page = pages[j];
-            li = $("<li><a href=\"/" + page.slug + ".html\">" + page.title + "</a></li>").appendTo(ul);
+            li = $("<li><a href=\"/" + page.id + ".html\">" + page.title + "</a></li>").appendTo(ul);
             sectionUl = $('<ul class="sections"/>').appendTo(li);
             outline = this.getOutline(page.html);
             for (k = 0, len1 = outline.length; k < len1; k++) {
               section = outline[k];
-              sectionLi = $("<li><a href=\"" + page.slug + ".html#" + section.slug + "\">" + section.title + "</a></li>").appendTo(sectionUl);
+              sectionLi = $("<li><a href=\"" + page.id + ".html#" + section.id + "\">" + section.title + "</a></li>").appendTo(sectionUl);
               articleUl = $('<ul class="articles"/>').appendTo(sectionLi);
               ref = section.articles;
               for (l = 0, len2 = ref.length; l < len2; l++) {
                 article = ref[l];
-                articleLi = $("<li><a href=\"" + page.slug + ".html#" + article.slug + "\">" + article.title + "</a></li>").appendTo(articleUl);
+                articleLi = $("<li><a href=\"" + page.id + ".html#" + article.id + "\">" + article.title + "</a></li>").appendTo(articleUl);
               }
             }
           }
@@ -87,12 +87,12 @@
             articles = [];
             $(e).find('article h2.title').each(function(si, se) {
               return articles.push({
-                slug: $(se).closest('article').attr('id'),
+                id: $(se).closest('article').attr('id'),
                 title: $(se).text()
               });
             });
             return outline.push({
-              slug: title.closest('section').attr('id'),
+              id: title.closest('section').attr('id'),
               title: title.text(),
               articles: articles
             });
