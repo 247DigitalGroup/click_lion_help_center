@@ -5,4 +5,6 @@ gem 'capistrano'
 
 gem 'sinatra'
 
+gem 'puma'
+
 gem 'rack-contrib'
