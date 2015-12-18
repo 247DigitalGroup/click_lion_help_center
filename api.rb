@@ -81,7 +81,7 @@ post '/pages' do
   htmls.each do |f_name, content|
     f_path = pages_directory + f_name
     cp_path = pages_directory + timestamp + '_' + f_name
-    FileUtils.cp f_path, cp_path
+    FileUtils.cp f_path, cp_path rescue nil
     File.write(f_path, content)
   end
   content_type :json
