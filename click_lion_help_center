@@ -1,7 +1,7 @@
 server {
   listen 80;
   server_name help.clicklion.com;
-  root /home/ubuntu/apps/click_lion_help_center/current/www;
+  root /home/ubuntu/apps/click_lion_help_center/current/editable_www;
   location / {
   }
 }

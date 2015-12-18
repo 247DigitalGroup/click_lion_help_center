@@ -1,0 +1,10 @@
+---
+language: node_js
+node_js:
+- 'iojs'
+
+branches:
+  only:
+    - master
+
+after_script: cat ./coverage/coverage-final.json | ./node_modules/codecov.io/bin/codecov.io.js && rm -rf ./coverage
