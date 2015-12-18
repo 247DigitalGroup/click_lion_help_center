@@ -109,7 +109,7 @@ ClickLion['docs'] =
     initFixedMenu()
     initAnchorLinks()
     initScrollSpy()
-    initEditor()
+    # initEditor()
 
 if $?
   $ document

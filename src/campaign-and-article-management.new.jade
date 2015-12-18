@@ -1,0 +1,493 @@
+extends _layouts/docs
+
+block var
+  - index = 3
+  - title = 'Campaign and Article Management'
+  - description = 'Learn how to create and manage campaigns'
+  - url = '/campaign-and-article-management.html'
+
+block content
+
+  h1#advertiser-interface Advertiser Interface
+  h2#access-the-advertiser-interface Access the advertiser interface
+  p
+    code Advertiser section
+    |  is where advertisers do most of their campaigns management works. To access 
+    code Advertiser section
+    | , please follow these steps:
+  ol
+    li
+      p
+        a(href='http://prototype.clicklion.com/users/sign_in', target='_blank') Sign in
+        |  to your ClickLion account.
+    li
+      p
+        | Click 
+        code Advertiser
+        |  on top navigation bar.
+  h2#advertiser-interface Advertiser Interface
+  p
+    | On the left menu of advertiser interface, there are two sections 
+    img(src='https://camo.githubusercontent.com/76e6102cf87645887e94c1dcd723e999bbacb35c/687474703a2f2f7075752e73682f6b427862762f373564373463316533392e706e67')
+    |  and 
+    img(src='https://camo.githubusercontent.com/4fddf67d0955730c8e8312d1ac6a9392386427ec/687474703a2f2f7075752e73682f6b427863442f356161633937663762342e706e67')
+    | .
+  h3 Your campaigns
+  p
+    | When you access 
+    code Campaigns
+    |  section, you will see a table listing all your campaigns along with the campaign's information. Those information are: status, total budget, daily budget, impression, page view, click, CTR, start date, and end date.
+  blockquote
+    p
+      | Click the small icon 
+      img(src='https://camo.githubusercontent.com/29e3455ba1b02bd8f28af873022c674a075643eb/687474703a2f2f7075752e73682f6b42786a442f643539633336393338652e706e67')
+      |  at the end of each row to go to report page for this campaign.
+    p
+      a(href='http://localhost:8080/campaign-and-article-management.html#states') Learn more
+      |  about campaign status.
+  h3 Create campaign
+  p
+    | Please go 
+    a(href='http://prototype.clicklion.com/campaigns/new', target='_blank') here
+    |  to learn how to create a campaign.
+  p
+    img(src='http://localhost:8080/img/figures/create-new-campaign.png')
+  h1#how-to-setup-a-campaign-to-get-valuable-visitors How to setup a campaign to get valuable visitors?
+  p To setup a campaign, please follow these steps:
+  ol
+    li
+      p
+        a(href='http://prototype.clicklion.com/users/sign_in', target='_blank') Sign in
+        |  to your ClickLion account.
+    li
+      p
+        | In 
+        code Advertiser
+        |  section on top navigation, click 
+        img(src='https://camo.githubusercontent.com/e29b7dca2b63e8373f7c1eabe0bb71176cec9a08/687474703a2f2f7075752e73682f6b774244512f636638663530316535362e706e67')
+        |  to open the campaign form.
+    li
+      p Fill in the following fields and submit the form:
+      ul
+        li
+          p
+            strong Name
+            | : Name your campaign. This field does not affect campaign performance.
+        li
+          p
+            strong Budget Spending
+            | : This is how ClickLion uses your campaign budget to attract visitors. There are two options 
+            code fast
+            |  and 
+            code evenly
+            | . With 
+            code fast
+            |  option, ClickLion will try to spend your budget in the quickest possible time. With 
+            code evenly
+            | , you are required to fill in 
+            code Duration
+            |  of your campaign, the budget will be split the across the 
+            code Duration
+            |  of the campaign.
+        li
+          p
+            strong Start Date
+            | : This is the date on which the campaign should start running. The start date have to be two days current of the current date; for example, if today is Jan 20th, 2015 (UTC +0), a 
+            code Start Date
+            |  earlier than Jan 22nd, 2015 (UTC +0) will not be allowed. The two day timeframe, is reserved for ClickLion to collect, prepare and carefully review your campaign and its articles. In some special cases, your campaign will take longer to start.
+        li
+          p
+            strong Duration
+            | : This field is required only when you choose the option 
+            code evenly
+            |  for Budget Spending.
+        li
+          p
+            strong Total Budget
+            | : The budget for your campaign.
+        li
+          p
+            strong Maximum CPC
+            | : The maximum amount of money you want to spend per click. The more you are willing to spend, the higher the quality of visitors you can receive.
+        li
+          p
+            strong How do you want us to collect your articles?
+            | There are two options 
+            code automatic
+            |  and 
+            code manual
+            | . With the 
+            code automatic
+            |  option, ClickLion will automatically go to your website to collect every articles in your website (
+            a(href='http://localhost:8080/campaign-and-article-management.html#markup-guidelines-and-recommendations') Learn more on this
+            | ). With 
+            code manual
+            | option, you will need to add article to your campaign via our Manage Manual Campaign interface. The 
+            code automatic
+            |  option is recommended because it saves you a lot of time, and allows ClickLion to automatically update your campaign if you have new articles or made changes to an existing one.
+        li
+          p
+            strong Domain
+            | : Domain of your website for this campaign. The domain URL must include protocol (http, https). For example: 
+            code http://clicklion.com
+            |  is a valid domain while 
+            code clicklion.com
+            |  is invalid.
+    li
+      p
+        | If your campaign is successfully created, our system will redirect you the campaign's page. If you see an error messages, please follow the instructions and resubmit your form.
+    li
+      p
+        | Upon creation the campaign status will be 
+        code unpaid
+        | . You need pay for that campaign before it can become 
+        code active
+        | .
+      ul
+        li
+          p
+            | If you choose automatic articles collection, ClickLion might need to some time (up to 24 hours) to finish collecting the articles and send you a notification email. After you received that email, please review the articles and 
+            a(href='http://localhost:8080/campaign-and-article-management.html#paying-for-your-campaign') purchase the campaign
+            |  if you think ClickLion collected the articles correctly, otherwise please 
+            a(href='http://prototype.clicklion.com/contact') contact us
+            |  for supports.
+        li
+          p
+            | If you choose your campaign to be manual, you should start 
+            a(href='http://localhost:8080/campaign-and-article-management.html#') adding articles to your campaign
+            | . After that please 
+            a(href='http://localhost:8080/campaign-and-article-management.html#paying-for-your-campaign') purchase the campaign
+            | .
+      blockquote
+        p
+          | There is a warning about the purchase due date such as 
+          code Please purchase your campaign before 06-10-2015
+          | . If you are not able to purchase the campaign on time, you will have to 
+          a(href='http://localhost:8080/campaign-and-article-management.html#reconfiguring-your-campaigns') reconfigure the campaign
+          |  before purchasing it.
+    li
+      p
+        | The campaign will be reviewed by ClickLion staffs. If it is 
+        code approved
+        | , the campaign will be active by on the 
+        code Start Date
+        | . In case the campaign is 
+        code disapproved
+        | , the 
+        code Budget
+        |  will be returned to your 
+        code Wallet
+        | . 
+        a(href='http://localhost:8080/account-management.html#your-wallet') Learn more
+        |  about your 
+        code Wallet
+        | .
+  h1#paying-for-your-campaign Paying for your campaign
+  p To pay your campaign, please follow these steps:
+  ol
+    li
+      p
+        a(href='http://prototype.clicklion.com/users/sign_in', target='_blank') Sign in
+        |  to your ClickLion account
+    li
+      p
+        | In the
+        code Advertiser section
+        | , choose a campaign you want to purchase from campaign table.
+      blockquote
+        p
+          | An unpaid campaign will have a status like so 
+          img(src='http://localhost:8080/img/figures/unpaid.png')
+    li
+      p
+        | In campaign page, click the 
+        code Pay
+        |  button to proceed.
+      blockquote
+        p
+          | In case your balance is insufficient, this action will take you to wallet page to 
+          a(href='http://localhost:8080/account-management.html#add-funds-to-your-wallet') add money into your balance
+          | .
+  h1#reconfiguring-your-campaigns Reconfiguring your campaigns
+  p To reconfigure your campaign, please follow these steps:
+  ol
+    li
+      p
+        a(href='http://prototype.clicklion.com/users/sign_in', target='_blank') Sign in
+        |  to your ClickLion account
+    li
+      p
+        | Click 
+        code Advertiser
+        |  on top navigation bar, you will see a table of your campaigns.
+    li
+      p
+        | Select which campaign you want to reconfigure. A campaign can be reconfigured when it is 
+        code unpaid
+        | .
+      blockquote
+        p
+          | An unpaid campaign will have a status like so 
+          img(src='http://localhost:8080/img/figures/unpaid.png')
+    li
+      p
+        | In campaign page, click the 
+        code Config
+        |  button to proceed.
+      ul
+        li
+          p
+            | In the campaign's configuration page, you can change the campaign's properties: name, budget, cpc, duration, starting date, ending date, payment method, and articles collection method.
+        li
+          p
+            | Remember to click 
+            code Save
+            |  to confirm your changes.
+      blockquote
+        p
+          | Your campaign will not run if your start date is set in the past, you will have to edit the start date in order for that campaign to be active.
+  h1#understanding-your-campaign Understanding your campaign
+  p
+    | Campaign management is one of the most important aspect for advertisers. If you are an advertiser, you obviously want your campaigns to perform as efficiently as possible. You will have to check your campaign's status and knows what it means, we will send an email whenever your campaign's status changes. In this section, we will try to cover everything related to campaigns, its a good idea to finish reading this section to have a clearer understanding.
+  h2#states-statuses States (Statuses)
+  p
+    | A campaign normally runs through some states. There are totally 6 states that a campaign could be in:
+  pre.
+  ol
+    li
+      p
+        strong unpaid
+        | : This is the starting state of every campaign. When you see this status, you need to purchase your campaign to get it to the next state.
+    li
+      p
+        strong reviewing
+        | : After purchasing the campaign, its state will be changed into reviewing. This indicates the campaign is being reviewed by ClickLion staffs.
+    li
+      p
+        strong approved
+        | : After being reviewed by ClickLion staffs, if your campaign follows our policies, it will be approved and holds this state.
+    li
+      p
+        strong suspended
+        | : After being reviewed, if your campaign violates our policies, it will be disapproved and holds this state. There will be a message with disapproval reasons which you can see in the campaign page.
+    li
+      p
+        strong active
+        | : After being approved, the campaign will wait until its start date to be active. When a campaign is active, ClickLion is actually using its articles to recommend to readers.
+    li
+      p
+        strong ended
+        | : The campaign will move to this state right after it finishes its end date or its budget is out.
+  blockquote
+    p
+      | While a campaign is being active, it can be suspended by ClickLion staffs if we found anything that violates our 
+      a(href='http://localhost:8080/policies/') policies
+      | .
+  h2#warnings Warnings
+  p
+    | While working with campaigns, you might see some warnings on the campaign page. It could be a message telling you that we are crawling your website to collect articles, reasons for its suspension or something you need to do for the campaign.
+  h2#how-often-are-articles-updated How often are articles updated
+  p
+    | ClickLion will automatically go to your website to fetch your articles. ClickLion will update them once a week. In case you want ClickLion to update your articles more often, please 
+    a(href='http://prototype.clicklion.com/contacts', target='_blank') contact
+    |  us.
+  h2#which-articles-will-be-recommended-on-publishers-websites Which articles will be recommended on Publishers websites
+  p
+    | Articles that follow our policies and are not disabled by advertisers will be considered to be recommended to readers.
+  h1#manage-your-articles Manage your articles
+  h2#manage-articles-interface Manage articles interface
+  p
+    | To access articles management interface for a campaign, please follow these steps:
+  ol
+    li
+      p
+        a(href='http://prototype.clicklion.com/users/sign_in', target='_blank') Sign in
+        |  to your ClickLion account.
+    li
+      p
+        | Click 
+        code Advertiser
+        |  section on top navigation, you will see a table of your campaigns.
+    li
+      p Select a campaign and you wil see a page showing articles of the campaign.
+      img(src='https://camo.githubusercontent.com/82e2322b64c20b44d06845f038842d5473540604/687474703a2f2f7075752e73682f6b437161422f666164376338623764332e706e67')
+  h2#manually-create-article Manually create article
+  p
+    | If your campaign is not of 
+    code auto
+    |  type, which means ClickLion automatically collects your articles, you need to manually add your articles using ClickLion interface. Please follow these steps:
+  ol
+    li
+      p
+        | Click 
+        code Add article
+        | , an article creating form will be shown.
+    li
+      p
+        | Fill in the URL of your article and click 
+        code Parse
+        | . To parse your article, ClickLion will have to download contents from the URL and analyze them so it might take up to 10 seconds.
+    li
+      p
+        | In 
+        code Refine article information
+        | , you should see the article title, article image and article body that ClickLion extracted from the URL you put in. If you are not satisfied with the extracted content, you can refine them.
+    li
+      p
+        | Click 
+        code Submit
+        |  to create the article.
+  blockquote
+    | For images, there are some requirements that your image needs to satisfy, 
+    a(href='http://localhost:8080/glossary.html#article-image') learn more
+    |  about it.
+  p
+    img(src='https://camo.githubusercontent.com/da3bbd630efd8ec7690d8570450841c9853f6dbf/687474703a2f2f7075752e73682f6b4b49616a2f633236306631383734372e706e67')
+  h2#disable-articles Disable articles
+  p
+    | In case of poor performance or any other reason that you do not want to promote one or more articles, please follow these steps to disable them:
+  ol
+    li
+      p In articles table, select the article you want to disable by clicking its image.
+    li
+      p
+        | Click 
+        code Disable
+        |  on the top right corner of the table.
+  blockquote Disabling an article will make ClickLion stop recommending it immediately.
+  h2#view-disabled-articles View disabled articles
+  p
+    | To see articles that are disabled, click 
+    code View inactive articles
+    |  on the top right corner of the articles table.
+  h2#enable-articles Enable articles
+  p To enable inactive articles, please follow these steps:
+  ol
+    li
+      p
+        | Click 
+        code View inactive articles
+        | , you will go to a page displaying inactive articles.
+    li
+      p Select articles by clicking their images.
+    li
+      p
+        | Click 
+        code Enable
+        |  to enable them.
+  h2#trackuntrack-articles Track/untrack articles
+  p
+    | Articles are not visible in ClickLion report system by default. To track one or more articles you care about, please follow these steps:
+  ol
+    li
+      p In the articles table, select an article by clicking its image.
+    li
+      p
+        | Click 
+        code Track
+        |  on the top right corner of the table.
+    li
+      p
+        | To untrack them, click 
+        code Untrack
+        |  instead.
+  h1#markup-guidelines-and-recommendations Markup Guidelines and Recommendations
+  p
+    | In general, our system collects and extracts various kinds of content from your article pages base on their HTML source, also known as markup. In this document, we recommend best practices that you should follow to ensure accurate content collection results.
+  h2#general-principles General Principles
+  ul
+    li
+      p Please do not use Javascript to generate your content.
+    li
+      p Do not apply any encryption or obfuscation technique to your content.
+    li
+      p
+        | We inspect element attributes (id, class, itemprop, etc.) to give a guess of their role on your entire page, so you should name them correctly in terms of their meaning. For example, we will ignore elements which seems to be irrelevant, such as recommendations, article suggestions, comments, advertisements, and so on. For that reason, it is not a good practice adding 
+        code class="advert"
+        |  to the article title, or adding 
+        code class="entry-content"
+        |  to your recommendations. In shorts, name your attributes exactly after what they do.
+  h2#title Title
+  ul
+    li
+      p
+        | The title of the article should be wrapped within a 
+        code h1
+        |  tag. It would be even more ideal if it is the sole 
+        code h1
+        |  element on the page.
+    li
+      p
+        | If a tag name other than 
+        code h1
+        |  is used, you should improve its recognizability by adding meaningful attributes. Some good examples are: 
+        code class="article-title"
+        | , 
+        code id="title"
+        | .
+    li
+      p
+        | It is recommended to keep opengraph title and article title identical, unless you have very special reasons. We do not exactly use the opengraph title as final result, but its content is taken into account as well, so please make sure it is useful enough.
+  h2#content Content
+  ul
+    li
+      p
+        | Paragraphs should be wrapped within 
+        code p
+        |  tags.
+    li
+      p
+        | The element which contains body text of the article should have self-explanatory attributes with it. Some of the good examples are: 
+        code class="article-content"
+        | , 
+        code id="story-body"
+        | .
+    li
+      p
+        | Irrelevant content inside the article body should be distinguished. For instance, you should never use p tags to write recommendations or suggestions. Also, it is easier for us to filter them out if you can add some descriptive classes to them, for example, 
+        code class="related-articles"
+        | , 
+        code class="recommendations"
+        |  or something like that.
+    li
+      p
+        | If your article consists of multiple sections, please keep the markup hierarchy of each section as simple as possible. Ideally, it should just include informative stuffs like 
+        code p
+        |  tags, linebreaks, images, links, etc. If their markup tree is too complicated with recommendations, suggestions, decorating blocks, there is a chance that our system cannot afford to merge all your sections correctly, or the extraction result contains junk texts.
+  h2#images Images
+  ul
+    li
+      p
+        | Please ensure that your article contains at least an image which meets the following requirements:
+      ul
+        li
+          p
+            | minimum width: 
+            code 320
+            | , minimum height: 
+            code 240
+        li
+          p not a gif image
+        li
+          p
+            | width/height ratio is in acceptable range: 
+            code 320/240 x 0.5
+            |  < 
+            code acceptable_ratio
+            |  < 
+            code 320/240 x 2.0
+        li
+          p
+            | Images should be embedded using simple 
+            code img
+            |  tags with 
+            code src
+            |  attributes. CSS 
+            code background-image
+            |  and similar techniques are ignored.
+  h2#multi-page-articles Multi-page Articles
+  p
+    | We try to collect full text content of multi-page articles. Please make sure that your sub-page URLs are generated as the same URL pattern.
+  p For example:
+  pre.
+  p  
