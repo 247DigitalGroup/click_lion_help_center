@@ -96,7 +96,11 @@
             url: this.api.root + this.api.pages
           });
           $http(req).success(function(res) {
-            return defer.resolve(res);
+            var page;
+            page = _.sortBy(res, function(p) {
+              return p.index;
+            });
+            return defer.resolve(page);
           }).error(function(e) {
             return defer.reject(e);
           });
@@ -136,7 +140,10 @@
             url: this.api.root + this.api.pages + '/' + id
           });
           $http(req).success(function(data) {
-            return defer.resolve(data);
+            var page;
+            page = data;
+            page.html = page.html.replace(/http:\/\/localhost:8080/g, '');
+            return defer.resolve(page);
           }).error(function(e) {
             return defer.reject(e);
           });

@@ -56,20 +56,20 @@
         };
 
         HelpCenterGenerator.prototype.compileMenu = function(pages) {
-          var article, articleLi, articleUl, j, k, l, len, len1, len2, li, outline, page, ref, section, sectionLi, sectionUl, ul;
+          var article, articleLi, articleUl, k, l, len, len1, len2, li, m, outline, page, ref, section, sectionLi, sectionUl, ul;
           ul = $('<ul class="pages"/>');
-          for (j = 0, len = pages.length; j < len; j++) {
-            page = pages[j];
+          for (k = 0, len = pages.length; k < len; k++) {
+            page = pages[k];
             li = $("<li><a href=\"/" + page.id + ".html\">" + page.title + "</a></li>").appendTo(ul);
             sectionUl = $('<ul class="sections"/>').appendTo(li);
             outline = this.getOutline(page.html);
-            for (k = 0, len1 = outline.length; k < len1; k++) {
-              section = outline[k];
+            for (l = 0, len1 = outline.length; l < len1; l++) {
+              section = outline[l];
               sectionLi = $("<li><a href=\"" + page.id + ".html#" + section.id + "\">" + section.title + "</a></li>").appendTo(sectionUl);
               articleUl = $('<ul class="articles"/>').appendTo(sectionLi);
               ref = section.articles;
-              for (l = 0, len2 = ref.length; l < len2; l++) {
-                article = ref[l];
+              for (m = 0, len2 = ref.length; m < len2; m++) {
+                article = ref[m];
                 articleLi = $("<li><a href=\"" + page.id + ".html#" + article.id + "\">" + article.title + "</a></li>").appendTo(articleUl);
               }
             }
@@ -101,27 +101,33 @@
         };
 
         HelpCenterGenerator.prototype.normalize = function(html) {
-          var article, body, content, dom, h1, h1s, h2, h2s, j, k, len, len1, section, subBody;
-          content = $(html);
-          dom = [];
-          h1s = content.filter('h1').add(content.find('h1'));
-          for (j = 0, len = h1s.length; j < len; j++) {
-            h1 = h1s[j];
-            h1 = $(h1);
-            h1.addClass('title');
-            body = $('<div class="body"/>').append(h1.nextUntil('h1'));
-            section = $('<section/>').attr('id', this.createSlugFromText(h1.text())).append(body).after(h1).prepend(h1);
-            dom.push(section);
-            h2s = body.filter('h2').add(body.find('h2'));
-            for (k = 0, len1 = h2s.length; k < len1; k++) {
-              h2 = h2s[k];
-              h2 = $(h2);
-              h2.addClass('title');
-              subBody = $('<div class="body"/>').append(h2.nextUntil('h1, h2'));
-              article = $('<article/>').attr('id', this.createSlugFromText(h2.text())).append(subBody).insertAfter(h2).prepend(h2);
-            }
-          }
-          return $('<div/>').append(dom).html();
+          var body, h1s;
+          body = $(html).appendTo('<div/>').parent();
+          h1s = body.find('h1');
+          h1s.each((function(_this) {
+            return function(i, h1) {
+              var h2s, section, sectionBody;
+              h1 = $(h1).addClass('title');
+              section = $('<section id="' + _this.createSlugFromText(h1.text()) + '"></section>').insertBefore(h1);
+              sectionBody = $('<div class="body"></div>');
+              h1.nextUntil('h1').appendTo(sectionBody);
+              sectionBody.insertAfter(h1);
+              h1.appendTo(section);
+              sectionBody.appendTo(section);
+              h2s = sectionBody.find('h2');
+              return h2s.each(function(j, h2) {
+                var article, articleBody;
+                h2 = $(h2).addClass('title');
+                article = $('<article id="' + _this.createSlugFromText(h2.text()) + '"></article>').insertBefore(h2);
+                articleBody = $('<div class="body"></div>');
+                h2.nextUntil('h1, h2').appendTo(articleBody);
+                articleBody.insertAfter(h2);
+                h2.appendTo(article);
+                return articleBody.appendTo(article);
+              });
+            };
+          })(this));
+          return body.html();
         };
 
         return HelpCenterGenerator;

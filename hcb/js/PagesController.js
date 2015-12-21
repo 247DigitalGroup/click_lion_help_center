@@ -4,15 +4,14 @@
       var editPage;
       this.ckeditor = {
         language: 'en',
-        entities: false,
+        entities: true,
+        allowedContent: true,
         height: 710
       };
       editPage = (function(_this) {
         return function(page) {
           _this.page = page;
-          _this.html = _this.page.html;
           return _this.save = function() {
-            _this.page.html = generator.normalize(_this.html);
             return api.savePage(_this.page).then(function() {
               Notification.success({
                 title: _this.page.title,
@@ -34,13 +33,17 @@
         case 'pages.publish':
           api.getPages().then((function(_this) {
             return function(pages) {
-              var htmls, menu;
+              var htmls, i, len, menu, page;
+              for (i = 0, len = pages.length; i < len; i++) {
+                page = pages[i];
+                page.html = generator.normalize(page.html);
+              }
               menu = generator.compileMenu(pages);
               htmls = {};
               return generator.getTemplate().then(function(template) {
-                var html, i, len, page;
-                for (i = 0, len = pages.length; i < len; i++) {
-                  page = pages[i];
+                var html, j, len1;
+                for (j = 0, len1 = pages.length; j < len1; j++) {
+                  page = pages[j];
                   html = generator.compile(template, menu, page);
                   htmls[page.id + '.html'] = html;
                 }
