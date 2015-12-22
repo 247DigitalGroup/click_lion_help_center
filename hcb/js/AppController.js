@@ -6,7 +6,7 @@
   app = angular.module('HCB', ['ckeditor', 'ngAnimate', 'ngRoute', 'ngSanitize', '720kb.tooltips', 'btford.modal', 'angular-loading-bar', 'cfp.loadingBar', 'angular-velocity', 'ui-notification']).constant('configs', {
     siteRoot: window.ClickLionDebugger != null ? 'http://help.clicklion.com' : 'http://help.clicklion.com',
     tplRoot: window.ClickLionDebugger != null ? '/tpl' : '/tpl',
-    apiRoot: window.ClickLionDebugger != null ? 'http://edit.help.clicklion.com:4567' : 'http://edit.help.clicklion.com:4567'
+    apiRoot: window.ClickLionDebugger != null ? 'http://edit.help.clicklion.com' : 'http://edit.help.clicklion.com'
   }).config([
     'configs', function(configs) {
       var _configs, e;
